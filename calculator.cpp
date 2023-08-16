@@ -539,3 +539,53 @@ void BMICalculator() {
         std::cout << "Obeso" << std::endl;
     }
 }
+
+void CalculateAreaAndPermiter(){
+    int choice;
+    double side, length, width, radius, base, height;
+
+    std::cout << "Scegli la figura geometrica:\n";
+    std::cout << "1. Quadrato\n";
+    std::cout << "2. Rettangolo\n";
+    std::cout << "3. Cerchio\n";
+    std::cout << "4. Triangolo\n";
+    std::cout << "Scelta: ";
+    std::cin >> choice;
+
+    switch (choice) {
+        case 1:
+            std::cout << "Inserisci la lunghezza del lato del quadrato: ";
+            std::cin >> side;
+            std::cout << "Area del quadrato: " << side * side << std::endl;
+            std::cout << "Perimetro del quadrato: " << 4 * side << std::endl;
+            break;
+
+        case 2:
+            std::cout << "Inserisci la lunghezza e la larghezza del rettangolo: ";
+            std::cin >> length >> width;
+            std::cout << "Area del rettangolo: " << length * width << std::endl;
+            std::cout << "Perimetro del rettangolo: " << 2 * (length + width) << std::endl;
+            break;
+
+        case 3:
+            std::cout << "Inserisci il raggio del cerchio: ";
+            std::cin >> radius;
+            std::cout << "Area del cerchio: " << M_PI * radius * radius << std::endl;
+            std::cout << "Circonferenza del cerchio: " << 2 * M_PI * radius << std::endl;
+            break;
+
+        case 4:
+            std::cout << "Inserisci la base e l'altezza del triangolo: ";
+            std::cin >> base >> height;
+            std::cout << "Area del triangolo: " << 0.5 * base * height << std::endl;
+            std::cout << "Perimetro del triangolo: Inserisci i lati: ";
+            double side1, side2, side3;
+            std::cin >> side1 >> side2 >> side3;
+            std::cout << "Perimetro del triangolo: " << side1 + side2 + side3 << std::endl;
+            break;
+
+        default:
+            std::cout << "Scelta non valida!" << std::endl;
+            break;    
+}
+}
