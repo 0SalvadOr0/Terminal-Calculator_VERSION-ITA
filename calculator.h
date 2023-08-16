@@ -25,5 +25,6 @@ void Converters();
 void BMICalculator();
 void CalculateAreaAndPermiter();
 int CalculateAge(const std::tm& birthDate);
+double CalculateTax();
 
 #endif // CALCULATOR_H

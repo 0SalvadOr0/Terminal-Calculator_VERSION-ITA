@@ -53,7 +53,8 @@ void Menu(){
     std::cout << " 11. Calcolo BMI\n"; // Aggiunta dell'opzione per il calcolo del BMI
     std::cout << " 12. Calcolo Area e Perimetro\n";
     std::cout << " 13. Calcolatore dell'età\n";
-    std::cout << " 14. Esci\n"; // Aggiornamento del numero dell'opzione "Esci"
+    std::cout << " 14. Calcolatore delle tasse\n";
+    std::cout << " 15. Esci\n"; // Aggiornamento del numero dell'opzione "Esci"
     std::cout << "******************************" << std::endl;
 }
 
@@ -119,7 +120,11 @@ void choice() {
             std::cout << "La tua età è: " << age << " anni." << std::endl;
             break;
         }
-            case 14:
+            case 14: 
+            CalculateTax();
+            break;
+            
+            case 15:
                 exitProgram = true;  // Imposta la variabile per uscire dal ciclo
                 break;
             default:
@@ -128,6 +133,7 @@ void choice() {
         }
     }
 }
+
 
 void addition(float &a, float &b) {
     std::cout << "Inserisci primo valore: ";
@@ -623,3 +629,29 @@ int CalculateAge(const std::tm& birthDate) {
     return age;
 }
 
+// Funzione per calcolare l'importo delle tasse in base al reddito e alle aliquote fiscali
+double CalculateTax() {
+    int percentTax;
+    double income;
+
+    std::cout << "Inserisci l'importo del tuo reddito: ";
+    std::cin >> income;
+
+    if (std::cin.fail()) {
+        std::cerr << "Errore nell'input del reddito." << std::endl;
+        return 0.0;
+    }
+
+    std::cout << "Inserisci la percentuale della tua aliquota fiscale: ";
+    std::cin >> percentTax;
+
+    if (std::cin.fail() || percentTax < 0 || percentTax > 100) {
+        std::cerr << "Percentuale tassa non valida." << std::endl;
+        return 0.0;
+    }
+
+    double tax = (income * percentTax) / 100.0;
+
+    std::cout << "Le tue tasse sono pari a: " << tax << std::endl;
+    return tax;
+}
