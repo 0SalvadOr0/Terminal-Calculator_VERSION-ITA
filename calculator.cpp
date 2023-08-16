@@ -52,7 +52,8 @@ void Menu(){
     std::cout << " 10. Convertitore\n";
     std::cout << " 11. Calcolo BMI\n"; // Aggiunta dell'opzione per il calcolo del BMI
     std::cout << " 12. Calcolo Area e Perimetro\n";
-    std::cout << " 13. Esci\n"; // Aggiornamento del numero dell'opzione "Esci"
+    std::cout << " 13. Calcolatore dell'età\n";
+    std::cout << " 14. Esci\n"; // Aggiornamento del numero dell'opzione "Esci"
     std::cout << "******************************" << std::endl;
 }
 
@@ -104,7 +105,21 @@ void choice() {
             case 12: 
                 CalculateAreaAndPermiter();
                 break;
-            case 13:
+            case 13: {
+            std::cout << "Inserisci la data di nascita (AAAA MM GG): ";
+            std::tm birthDate = {};
+            std::cin >> std::get_time(&birthDate, "%Y %m %d");
+
+            if (std::cin.fail()) {
+                std::cerr << "Errore nell'input della data." << std::endl;
+                break;
+            }
+
+            int age = CalculateAge(birthDate);
+            std::cout << "La tua età è: " << age << " anni." << std::endl;
+            break;
+        }
+            case 14:
                 exitProgram = true;  // Imposta la variabile per uscire dal ciclo
                 break;
             default:
@@ -593,3 +608,18 @@ void CalculateAreaAndPermiter(){
             break;    
 }
 }
+
+// Funzione per calcolare l'età in base alla data di nascita
+int CalculateAge(const std::tm& birthDate) {
+    std::time_t currentTime = std::time(nullptr);
+    std::tm* currentDate = std::localtime(&currentTime);
+
+    int age = currentDate->tm_year - birthDate.tm_year;
+    if (currentDate->tm_mon < birthDate.tm_mon ||
+        (currentDate->tm_mon == birthDate.tm_mon && currentDate->tm_mday < birthDate.tm_mday)) {
+        age--;
+    }
+
+    return age;
+}
+

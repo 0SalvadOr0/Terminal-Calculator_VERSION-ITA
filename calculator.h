@@ -6,6 +6,8 @@
 #include <iostream>
 #include <math.h>
 #include <string>
+#include <ctime>
+#include <iomanip>
 
 void Title();
 void Menu();
@@ -22,5 +24,6 @@ void PercentageCalculations();
 void Converters();
 void BMICalculator();
 void CalculateAreaAndPermiter();
+int CalculateAge(const std::tm& birthDate);
 
 #endif // CALCULATOR_H
