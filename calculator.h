@@ -21,5 +21,6 @@ void TrigonometricOperations();
 void PercentageCalculations();
 void Converters();
 void BMICalculator();
+void CalculateAreaAndPermiter();
 
 #endif // CALCULATOR_H

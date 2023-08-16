@@ -51,7 +51,8 @@ void Menu(){
     std::cout << " 9. Percentuali\n";
     std::cout << " 10. Convertitore\n";
     std::cout << " 11. Calcolo BMI\n"; // Aggiunta dell'opzione per il calcolo del BMI
-    std::cout << " 12. Esci\n"; // Aggiornamento del numero dell'opzione "Esci"
+    std::cout << " 12. Calcolo Area e Perimetro\n";
+    std::cout << " 13. Esci\n"; // Aggiornamento del numero dell'opzione "Esci"
     std::cout << "******************************" << std::endl;
 }
 
@@ -100,7 +101,10 @@ void choice() {
             case 11:
                 BMICalculator();
                 break;
-            case 12:
+            case 12: 
+                CalculateAreaAndPermiter();
+                break;
+            case 13:
                 exitProgram = true;  // Imposta la variabile per uscire dal ciclo
                 break;
             default:
