@@ -292,7 +292,7 @@ void Converters() {
 
 
 
-    std::cout << "Scegli il tipo di conversione:\n 1. Lunghezza\n 2. Calorie\n 3. Massa\n 4. Temperatura\n 5. Velocità\n 6. Denaro\n";
+    std::cout << "Scegli il tipo di conversione:\n 1. Lunghezza\n 2. Calorie\n 3. Massa\n 4. Temperatura\n 5. Velocità\n 6. Denaro\n 7. Dati Mobili\n";
     std::cin >> choice;
 
     switch (choice) {
@@ -534,6 +534,32 @@ void Converters() {
             std::cout << "Valuta di partenza non valida." << std::endl;
         }
         break;
+
+        case 7:
+        std::cout << "Inserisci il valore da convertire: ";
+        std::cin >> value;
+        std::cout << "Inserisci l'unità di misura da cui convertire (GB, MB): ";
+        std::cin >> fromUnit;
+        std::cout << "Inserisci l'unità di misura a cui convertire (GB, MB): ";
+        std::cin >> toUnit;
+
+        if (fromUnit == "GB") {
+            if (toUnit == "MB") {
+                std::cout << "Valore finale: " << value * 1024 << " MB" << std::endl;
+            } else {
+                std::cout << "Unità di misura di destinazione non valida." << std::endl;
+            }
+        } else if (fromUnit == "MB") {
+            if (toUnit == "GB") {
+                std::cout << "Valore finale: " << value / 1024 << " GB" << std::endl;
+            } else {
+                std::cout << "Unità di misura di destinazione non valida." << std::endl;
+            }
+        } else {
+            std::cout << "Unità di misura di partenza non valida." << std::endl;
+        }
+        break;
+
 
         default:
             std::cout << "Scelta non valida." << std::endl;
