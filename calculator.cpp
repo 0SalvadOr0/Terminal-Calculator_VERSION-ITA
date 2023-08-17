@@ -55,7 +55,7 @@ void Menu(){
     std::cout << " 13. Calcolatore dell'età\n";
     std::cout << " 14. Calcolatore delle tasse\n";
     std::cout << " 15. Esci\n"; // Aggiornamento del numero dell'opzione "Esci"
-    std::cout << "******************************" << std::endl;
+    std::cout << "******************************"<<std::endl;;
 }
 
 // Funzione per la scelta dell'operazione
@@ -63,8 +63,11 @@ void choice() {
     int option;
     bool exitProgram = false;  // Aggiunta della variabile di controllo per l'uscita
 
+
     while (!exitProgram) {  // Utilizzo di un ciclo per mantenere il menu attivo
+        Title();
         Menu();
+         std::cout << "Inserisci la tua scelta: ";
         std::cin >> option;
 
         float a, b, c;
@@ -121,8 +124,8 @@ void choice() {
             break;
         }
             case 14: 
-            CalculateTax();
-            break;
+                CalculateTax();
+                break;
             
             case 15:
                 exitProgram = true;  // Imposta la variabile per uscire dal ciclo

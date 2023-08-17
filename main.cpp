@@ -3,7 +3,6 @@
 
 int main() {
     setlocale(LC_ALL, "");
-    Title();
     choice();
     return 0;
 }
