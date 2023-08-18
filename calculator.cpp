@@ -54,13 +54,15 @@ void Menu(){
     std::cout << " 12. Calcolo Area e Perimetro\n";
     std::cout << " 13. Calcolatore dell'età\n";
     std::cout << " 14. Calcolatore delle tasse\n";
-    std::cout << " 15. Esci\n"; // Aggiornamento del numero dell'opzione "Esci"
+    std::cout << " 15. Generatore di Password\n";
+    std::cout << " 16. Esci\n"; // Aggiornamento del numero dell'opzione "Esci"
     std::cout << "******************************"<<std::endl;;
 }
 
 // Funzione per la scelta dell'operazione
 void choice() {
     int option;
+    int choice;
     bool exitProgram = false;  // Aggiunta della variabile di controllo per l'uscita
 
 
@@ -125,9 +127,28 @@ void choice() {
         }
             case 14: 
                 CalculateTax();
-                break;
-            
+                break;    
             case 15:
+                 std::cout << "Lunghezza della password:\n 1. 6 Caratteri\n 2. 8 Caratteri\n 3. 12 Caratteri\n";
+                 std::cin >> choice;
+
+        switch (choice) {
+            case 1:
+                GeneratePassword(6);
+                break;
+            case 2:
+                GeneratePassword(8);
+                break;
+            case 3:
+                GeneratePassword(12);
+                break;
+            default:
+                std::cout << "Invalid choice." << std::endl;
+                break;
+        }
+        break;
+
+            case 16:
                 exitProgram = true;  // Imposta la variabile per uscire dal ciclo
                 break;
             default:
@@ -683,4 +704,26 @@ double CalculateTax() {
 
     std::cout << "Le tue tasse sono pari a: " << tax << std::endl;
     return tax;
+}
+
+
+void GeneratePassword(int length) {
+    const std::string lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+    const std::string uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const std::string numericChars = "0123456789";
+    const std::string specialChars = "!@#$%^&*()-_+=<>?";
+
+    const std::string allChars = lowercaseChars + uppercaseChars + numericChars + specialChars;
+
+    std::string password;
+
+    // Seed the random number generator
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
+    for (int i = 0; i < length; ++i) {
+        int randomIndex = std::rand() % allChars.length();
+        password += allChars[randomIndex];
+    }
+
+    std::cout << "Generated Password: " << password << std::endl;
 }

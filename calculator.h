@@ -8,6 +8,8 @@
 #include <string>
 #include <ctime>
 #include <iomanip>
+#include <cstdlib>
+
 
 void Title();
 void Menu();
@@ -26,5 +28,6 @@ void BMICalculator();
 void CalculateAreaAndPermiter();
 int CalculateAge(const std::tm& birthDate);
 double CalculateTax();
+void GeneratePassword(int length);
 
 #endif // CALCULATOR_H
