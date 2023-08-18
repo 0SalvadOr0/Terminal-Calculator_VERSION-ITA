@@ -725,5 +725,6 @@ void GeneratePassword(int length) {
         password += allChars[randomIndex];
     }
 
-    std::cout << "Generated Password: " << password << std::endl;
+    std::cout << "Password generata con successo: " << password << std::endl;
+    std::cout << "Non mostrare la tua password a nessuno"<<std::endl;
 }
