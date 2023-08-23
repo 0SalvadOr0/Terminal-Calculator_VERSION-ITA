@@ -13,6 +13,7 @@
 
 void Title();
 void Menu();
+void ClearInputBuffer();
 void choice();
 void addition(float &a, float &b);
 void subtraction(float &a, float &b);
@@ -29,5 +30,7 @@ void CalculateAreaAndPermiter();
 int CalculateAge(const std::tm& birthDate);
 double CalculateTax();
 void GeneratePassword(int length);
+float CalculateVolume();
+float CalculateSurface();
 
 #endif // CALCULATOR_H

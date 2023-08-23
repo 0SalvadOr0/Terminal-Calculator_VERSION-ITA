@@ -5,19 +5,6 @@
 #define M_PI 3.14159265358979323846
 #endif
 
-// Dichiarazione delle funzioni
-void Title();
-void choice();
-void addition(float &a, float &b);
-void subtraction(float &a, float &b);
-void multiplication(float &a, float &b);
-void division(float &a, float &b);
-void Pow(float &a, float &b);
-void Sqrt(float &a);
-void Triangle();
-void TrigonometricOperations();
-void PercentageCalculations();
-void Converters();
 
 // Funzione per stampare il titolo stilizzato
 void Title(){
@@ -55,9 +42,17 @@ void Menu(){
     std::cout << " 13. Calcolatore dell'età\n";
     std::cout << " 14. Calcolatore delle tasse\n";
     std::cout << " 15. Generatore di Password\n";
-    std::cout << " 16. Esci\n"; // Aggiornamento del numero dell'opzione "Esci"
+    std::cout << " 16. Calcolatore di volume e superficie\n";
+    std::cout << " 17. Esci\n"; // Aggiornamento del numero dell'opzione "Esci"
     std::cout << "******************************"<<std::endl;;
 }
+
+// Funzione per pulire l'input
+void ClearInputBuffer() {
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
 
 // Funzione per la scelta dell'operazione
 void choice() {
@@ -71,6 +66,7 @@ void choice() {
         Menu();
          std::cout << "Inserisci la tua scelta: ";
         std::cin >> option;
+        ClearInputBuffer();
 
         float a, b, c;
 
@@ -128,27 +124,43 @@ void choice() {
             case 14: 
                 CalculateTax();
                 break;    
-            case 15:
-                 std::cout << "Lunghezza della password:\n 1. 6 Caratteri\n 2. 8 Caratteri\n 3. 12 Caratteri\n";
-                 std::cin >> choice;
+           case 15:
+    std::cout << "Lunghezza della password:\n 1. 6 Caratteri\n 2. 8 Caratteri\n 3. 12 Caratteri\n";
+    std::cin >> choice;
+    
 
-        switch (choice) {
+    switch (choice) {
+        case 1:
+            GeneratePassword(6);
+            break;
+        case 2:
+            GeneratePassword(8);
+            break;
+        case 3:
+            GeneratePassword(12);
+            break;
+        default:
+            std::cout << "Scelta non valida." << std::endl;
+            break;
+    }
+    break;
+            case 16:
+            std::cout << "Opzioni:\n 1. Calcolatore di Volume\n 2. Calcolatore di superficie";
+            std::cin >> choice;
+
+            switch (choice)
+            {
             case 1:
-                GeneratePassword(6);
+                CalculateVolume();
                 break;
             case 2:
-                GeneratePassword(8);
-                break;
-            case 3:
-                GeneratePassword(12);
+                CalculateSurface();
                 break;
             default:
-                std::cout << "Invalid choice." << std::endl;
                 break;
-        }
-        break;
-
-            case 16:
+            }
+            break;
+            case 17:
                 exitProgram = true;  // Imposta la variabile per uscire dal ciclo
                 break;
             default:
@@ -728,3 +740,68 @@ void GeneratePassword(int length) {
     std::cout << "Password generata con successo: " << password << std::endl;
     std::cout << "Non mostrare la tua password a nessuno"<<std::endl;
 }
+
+float CalculateVolume() {
+    float radius, height;
+    float volume;
+    int shape;
+
+    std::cout << "Inserisci il valore del raggio: ";
+    std::cin >> radius;
+
+    std::cout << "Decidi il tipo di figura:\n 1. Sfera\n 2. Cilindro\n 3. Cono\n";
+    std::cin >> shape;
+
+    if (shape == 1) {
+        // Sfera
+        volume = 4.0 / 3.0 * M_PI * radius * radius * radius;
+        std::cout << "Il volume misura: " << volume << std::endl;
+    } else if (shape == 2) {
+        std::cout << "Inserisci il valore dell'altezza: ";
+        std::cin >> height;
+        // Cilindro
+        volume = M_PI * radius * radius * height;
+        std::cout << "Il volume misura: " << volume << std::endl;
+    } else if (shape == 3) {
+        std::cout << "Inserisci il valore dell'altezza: ";
+        std::cin >> height;
+        // Cono
+        volume = 1.0 / 3.0 * M_PI * radius * radius * height;
+        std::cout << "Il volume misura: " << volume << std::endl;
+    }
+    return volume;
+}
+
+
+float CalculateSurface() {
+    float radius, height, slantHeight;
+    float surface;
+    int shape;
+
+    std::cout << "Inserisci il valore del raggio: ";
+    std::cin >> radius;
+
+    std::cout << "Decidi il tipo di figura:\n 1. Sfera\n 2. Cilindro\n 3. Cono\n";
+    std::cin >> shape;
+
+    if (shape == 1) {
+        // Sfera  
+        surface = 4 * M_PI * radius * radius;
+        std::cout << "La superficie misura: " << surface << std::endl;
+    } else if (shape == 2) {
+        std::cout << "Inserisci il valore dell'altezza: ";
+        std::cin >> height;
+        // Cilindro
+        surface = 2 * M_PI * radius * (radius + height);
+        std::cout << "La superficie misura: " << surface << std::endl;
+    } else if (shape == 3) {
+        std::cout << "Inserisci il valore dell'altezza: ";
+        std::cin >> height;
+        // Cono
+        slantHeight = sqrt(radius * radius + height * height);
+        surface = M_PI * radius * (radius + slantHeight);
+        std::cout << "La superficie misura: " << surface << std::endl;
+    }
+    return surface;
+}
+
