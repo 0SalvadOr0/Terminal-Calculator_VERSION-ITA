@@ -21,7 +21,6 @@ void Sqrt(float &a);
 void Triangle();
 void TrigonometricOperations();
 void PercentageCalculations();
-void Converters();
 void BMICalculator();
 void CalculateAreaAndPermiter();
 int CalculateAge(const std::tm& birthDate);
