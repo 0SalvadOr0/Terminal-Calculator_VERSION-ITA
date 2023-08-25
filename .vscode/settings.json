@@ -57,6 +57,7 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp.errorSquiggles": "disabled",
   "files.associations": {
-    "*.tcc": "cpp"
+    "*.tcc": "cpp",
+    "ostream": "cpp"
   }
 }
