@@ -1,6 +1,8 @@
 #include "calculator.h"
 #include "design/design.h"
 #include "converter/converter.h"
+#include "trigoOperation/trigoOperation.h"
+#include "operation/operation.h"
 
 // Definizione di M_PI se non è già definito
 #ifndef M_PI
@@ -47,7 +49,7 @@ void choice() {
                 Triangle();
                 break; 
             case 8:
-                TrigonometricOperations();
+                ScientificCalculator();
                 break;
             case 9:
                 PercentageCalculations();
@@ -151,35 +153,6 @@ void Triangle() {
             break;
         default:
             std::cout << "Opzione non valida" << std::endl;
-            break;
-    }
-}
-
-void TrigonometricOperations() {
-    int choice;
-    float angle;
-
-    std::cout << "Scegli l'operazione:\n 1. Calcola il seno\n 2. Calcola il coseno\n 3. Calcola la tangente\n";
-    std::cin >> choice;
-
-    switch (choice) {
-        case 1:
-            std::cout << "Inserisci l'angolo in gradi: ";
-            std::cin >> angle;
-            std::cout << "Seno(" << angle << "): " << std::sin(angle * M_PI / 180) << std::endl;
-            break;
-        case 2:
-            std::cout << "Inserisci l'angolo in gradi: ";
-            std::cin >> angle;
-            std::cout << "Coseno(" << angle << "): " << std::cos(angle * M_PI / 180) << std::endl;
-            break;
-        case 3:
-            std::cout << "Inserisci l'angolo in gradi: ";
-            std::cin >> angle;
-            std::cout << "Tangente(" << angle << "): " << std::tan(angle * M_PI / 180) << std::endl;
-            break;
-        default:
-            std::cout << "Opzione non valida.\n";
             break;
     }
 }
