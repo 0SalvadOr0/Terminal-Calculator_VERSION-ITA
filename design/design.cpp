@@ -33,7 +33,7 @@ void Menu(){
     std::cout << " 10. Convertitore\n";
     std::cout << " 11. Calcolo BMI\n"; // Aggiunta dell'opzione per il calcolo del BMI
     std::cout << " 12. Calcolo Area e Perimetro\n";
-    std::cout << " 13. Calcolatore dell'età\n";
+    std::cout << " 13. Calcolatore dell'eta'\n";
     std::cout << " 14. Calcolatore delle tasse\n";
     std::cout << " 15. Generatore di Password\n";
     std::cout << " 16. Calcolatore di volume e superficie\n";
