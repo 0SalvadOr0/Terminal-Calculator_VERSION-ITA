@@ -1,8 +1,5 @@
 #include "calculator.hpp"
-#include "design/design.hpp"
-#include "converter/converter.hpp"
-#include "trigoOperation/trigoOperation.hpp"
-#include "operation/operation.hpp"
+
 
 // Definizione di M_PI se non è già definito
 #ifndef M_PI
@@ -15,6 +12,7 @@ void choice() {
     int option;
     int choice;
     bool exitProgram = false;  // Aggiunta della variabile di controllo per l'uscita
+    int passwordLength = 0; // Inizializzo la variabile passwordLength
 
 
     while (!exitProgram) {  // Utilizzo di un ciclo per mantenere il menu attivo
@@ -81,23 +79,31 @@ void choice() {
                 CalculateTax();
                 break;    
            case 15:
-    std::cout << "Lunghezza della password:\n 1. 6 Caratteri\n 2. 8 Caratteri\n 3. 12 Caratteri\n";
+    std::cout << "Lunghezza della password:\n 1. 6 Caratteri\n 2. 8 Caratteri\n 3. 12 Caratteri\n 4. 24 caratteri\n";
     std::cin >> choice;
-    
 
     switch (choice) {
         case 1:
-            GeneratePassword(6);
+            passwordLength = 6;
             break;
         case 2:
-            GeneratePassword(8);
+            passwordLength = 8;
             break;
         case 3:
-            GeneratePassword(12);
+            passwordLength = 12;
             break;
+        case 4:
+             passwordLength = 24;
+             break;
         default:
             std::cout << "Scelta non valida." << std::endl;
             break;
+    }
+
+    if (passwordLength > 0) {
+        std::string generatedPassword = generateRandomPassword(passwordLength);
+        std::cout << "Password generata con successo: " << generatedPassword << std::endl;
+        std::cout << "Non mostrare la tua password a nessuno" << std::endl;
     }
     break;
             case 16:
@@ -306,28 +312,6 @@ double CalculateTax() {
     return tax;
 }
 
-
-void GeneratePassword(int length) {
-    const std::string lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
-    const std::string uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const std::string numericChars = "0123456789";
-    const std::string specialChars = "!@#$%^&*()-_+=<>?";
-
-    const std::string allChars = lowercaseChars + uppercaseChars + numericChars + specialChars;
-
-    std::string password;
-
-    // Seed the random number generator
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
-
-    for (int i = 0; i < length; ++i) {
-        int randomIndex = std::rand() % allChars.length();
-        password += allChars[randomIndex];
-    }
-
-    std::cout << "Password generata con successo: " << password << std::endl;
-    std::cout << "Non mostrare la tua password a nessuno"<<std::endl;
-}
 
 float CalculateVolume() {
     float radius, height;

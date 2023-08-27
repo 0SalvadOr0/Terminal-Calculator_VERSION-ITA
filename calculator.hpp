@@ -9,17 +9,20 @@
 #include <ctime>
 #include <iomanip>
 #include <cstdlib>
+#include "design\design.hpp"
+#include "converter\converter.hpp"
+#include "trigoOperation\trigoOperation.hpp"
+#include "operation\operation.hpp"
+#include "PasswordGenerator\GeneratePassword.hpp"
 
 
 void choice();
 void Triangle();
-void TrigonometricOperations();
 void PercentageCalculations();
 void BMICalculator();
 void CalculateAreaAndPermiter();
 int CalculateAge(const std::tm& birthDate);
 double CalculateTax();
-void GeneratePassword(int length);
 float CalculateVolume();
 float CalculateSurface();
 
