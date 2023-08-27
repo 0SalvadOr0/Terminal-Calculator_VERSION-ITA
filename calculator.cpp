@@ -1,8 +1,8 @@
-#include "calculator.h"
-#include "design/design.h"
-#include "converter/converter.h"
-#include "trigoOperation/trigoOperation.h"
-#include "operation/operation.h"
+#include "calculator.hpp"
+#include "design/design.hpp"
+#include "converter/converter.hpp"
+#include "trigoOperation/trigoOperation.hpp"
+#include "operation/operation.hpp"
 
 // Definizione di M_PI se non è già definito
 #ifndef M_PI

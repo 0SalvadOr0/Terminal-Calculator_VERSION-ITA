@@ -1,4 +1,4 @@
-#include "trigoOperation.h"
+#include "trigoOperation.hpp"
 
 // Definizione di M_PI se non è già definito
 #ifndef M_PI
