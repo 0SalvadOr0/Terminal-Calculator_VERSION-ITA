@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef CALCULATOR_H
-#define CALCULATOR_H
+#ifndef CALCULATOR_HPP
+#define CALCULATOR_HPP
 
 #include <iostream>
 #include <math.h>
@@ -14,7 +14,6 @@
 #include "trigoOperation\trigoOperation.hpp"
 #include "operation\operation.hpp"
 #include "PasswordGenerator\GeneratePassword.hpp"
-
 
 void choice();
 void Triangle();

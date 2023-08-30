@@ -1,7 +1,7 @@
 #pragma once 
 
-#ifndef TRIGOOPERATION_H
-#define TRIGOOPERATION_H
+#ifndef TRIGOOPERATION_HPP
+#define TRIGOOPERATION_HPP
 
 #include <iostream>
 #include <math.h>

@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef DESIGN_H
-#define DESIGN_H
+#ifndef DESIGN_HPP
+#define DESIGN_HPP
 
 #include <iostream>
 

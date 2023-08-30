@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef CONVERTER_H
-#define CONVERTER_H
+#ifndef CONVERTER_HPP
+#define CONVERTER_HPP
 
 #include <iostream>
 #include <math.h>

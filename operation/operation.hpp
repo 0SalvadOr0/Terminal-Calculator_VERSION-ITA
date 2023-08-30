@@ -1,7 +1,7 @@
 #pragma once 
 
-#ifndef OPERATION_H
-#define OPERATION_H
+#ifndef OPERATION_HPP
+#define OPERATION_HPP
 
 #include <iostream>
 #include <math.h>
