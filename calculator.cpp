@@ -72,7 +72,7 @@ void choice() {
             }
 
             int age = CalculateAge(birthDate);
-            std::cout << "La tua età è: " << age << " anni." << std::endl;
+            std::cout << "La tua età e': " << age << " anni." << std::endl;
             break;
         }
             case 14: 
