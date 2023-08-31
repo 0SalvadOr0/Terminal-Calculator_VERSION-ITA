@@ -3,12 +3,7 @@
 #ifndef GENERATEPASSWORD_HPP
 #define GENERATEPASSWORD_HPP
 
-#include <iostream>
-#include <string>
-#include <ctime>
-#include <iomanip>
-#include <cstdlib>
-#include <random>
+#include "..\lib\libs.hpp"
 
 std::string generateRandomPassword(int length);
 

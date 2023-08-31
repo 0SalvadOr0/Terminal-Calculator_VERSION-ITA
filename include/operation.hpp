@@ -3,8 +3,7 @@
 #ifndef OPERATION_HPP
 #define OPERATION_HPP
 
-#include <iostream>
-#include <math.h>
+#include "..\lib\libs.hpp"
 
 void addition(float &a, float &b);
 void subtraction(float &a, float &b);

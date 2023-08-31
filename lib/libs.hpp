@@ -1,7 +1,7 @@
-#pragma once
+#pragma once 
 
-#ifndef CONVERTER_HPP
-#define CONVERTER_HPP
+#ifndef LIBS_HPP
+#define LIBS_HPP
 
 #include <iostream>
 #include <math.h>
@@ -9,7 +9,7 @@
 #include <ctime>
 #include <iomanip>
 #include <cstdlib>
-
-void Converters();
+#include <random>
+#include  <iomanip>
 
 #endif

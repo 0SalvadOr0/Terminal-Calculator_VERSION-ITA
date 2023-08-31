@@ -3,17 +3,12 @@
 #ifndef CALCULATOR_HPP
 #define CALCULATOR_HPP
 
-#include <iostream>
-#include <math.h>
-#include <string>
-#include <ctime>
-#include <iomanip>
-#include <cstdlib>
-#include "design\design.hpp"
-#include "converter\converter.hpp"
-#include "trigoOperation\trigoOperation.hpp"
-#include "operation\operation.hpp"
-#include "PasswordGenerator\GeneratePassword.hpp"
+#include "..\lib\libs.hpp"
+#include "..\include\converter.hpp"
+#include "..\include\design.hpp"
+#include "..\include\GeneratePassword.hpp"
+#include "..\include\operation.hpp"
+#include "..\include\trigoOperation.hpp"
 
 void choice();
 void Triangle();

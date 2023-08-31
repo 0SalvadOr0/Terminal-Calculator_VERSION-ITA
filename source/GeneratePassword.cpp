@@ -1,4 +1,4 @@
-#include "GeneratePassword.hpp"
+#include "..\include\GeneratePassword.hpp"
 
 // Definizione della funzione per generare password casuale
 std::string generateRandomPassword(int length) {

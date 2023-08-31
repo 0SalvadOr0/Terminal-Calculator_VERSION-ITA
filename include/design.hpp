@@ -3,7 +3,7 @@
 #ifndef DESIGN_HPP
 #define DESIGN_HPP
 
-#include <iostream>
+#include "..\lib\libs.hpp"
 
 void Title();
 void Menu();

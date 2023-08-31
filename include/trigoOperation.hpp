@@ -3,9 +3,7 @@
 #ifndef TRIGOOPERATION_HPP
 #define TRIGOOPERATION_HPP
 
-#include <iostream>
-#include <math.h>
-#include <cstdlib>
+#include "..\lib\libs.hpp"
 
 void ScientificCalculator();
 
