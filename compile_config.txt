@@ -1,0 +1,10 @@
+-std=c++20
+-O3
+-Wall
+-Werror
+-pedantic
+-g
+-L/path/to/libraries
+-DDEBUG
+-fPIC
+-march=native

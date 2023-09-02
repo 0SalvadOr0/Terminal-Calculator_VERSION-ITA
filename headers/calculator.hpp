@@ -9,6 +9,7 @@
 #include "..\include\GeneratePassword.hpp"
 #include "..\include\operation.hpp"
 #include "..\include\trigoOperation.hpp"
+#include "..\include\expression.hpp"
 
 void choice();
 void Triangle();

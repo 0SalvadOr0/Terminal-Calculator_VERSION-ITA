@@ -11,5 +11,6 @@
 #include <cstdlib>
 #include <random>
 #include  <iomanip>
+#include <stack>
 
 #endif

@@ -59,6 +59,7 @@
   "files.associations": {
     "*.tcc": "cpp",
     "ostream": "cpp",
-    "iomanip": "cpp"
+    "iomanip": "cpp",
+    "string": "cpp"
   }
 }

@@ -22,7 +22,7 @@ void choice() {
         std::cin >> option;
         
 
-        float a, b, c;
+        float a, b;
 
         switch (option) {
             case 1:
@@ -123,6 +123,18 @@ void choice() {
             }
             break;
             case 17:
+    {
+        std::string expression;
+        std::cout << "Inserisci un'espressione algebrica: ";
+        std::cin.ignore(); // Per eliminare eventuali caratteri residui nel buffer
+        std::getline(std::cin, expression);
+
+        int result = calculateExpression(expression);
+        std::cout << "Risultato: " << result << std::endl;
+    }
+    break;
+
+            case 18:
                 exitProgram = true;  // Imposta la variabile per uscire dal ciclo
                 break;
             default:
@@ -315,7 +327,7 @@ double CalculateTax() {
 
 float CalculateVolume() {
     float radius, height;
-    float volume;
+    float volume = 0.0;
     int shape;
 
     std::cout << "Inserisci il valore del raggio: ";
@@ -347,7 +359,7 @@ float CalculateVolume() {
 
 float CalculateSurface() {
     float radius, height, slantHeight;
-    float surface;
+    float surface = 0.0;
     int shape;
 
     std::cout << "Inserisci il valore del raggio: ";

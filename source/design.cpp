@@ -37,6 +37,7 @@ void Menu(){
     std::cout << " 14. Calcolatore delle tasse\n";
     std::cout << " 15. Generatore di Password\n";
     std::cout << " 16. Calcolatore di volume e superficie\n";
-    std::cout << " 17. Esci\n"; // Aggiornamento del numero dell'opzione "Esci"
+    std::cout << " 17. Espressioni\n";
+    std::cout << " 18. Esci\n"; // Aggiornamento del numero dell'opzione "Esci"
     std::cout << "******************************"<<std::endl;;
 }

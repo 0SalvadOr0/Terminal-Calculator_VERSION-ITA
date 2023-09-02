@@ -2,7 +2,6 @@
 
 // Definizione della funzione per generare password casuale
 std::string generateRandomPassword(int length) {
-    int choice,  passwordLenght;
 
     const std::string lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
     const std::string uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
