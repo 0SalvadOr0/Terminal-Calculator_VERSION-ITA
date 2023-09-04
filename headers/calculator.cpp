@@ -59,7 +59,7 @@ void choice() {
                 BMICalculator();
                 break;
             case 12: 
-                CalculateAreaAndPermiter();
+                CalculateAreaAndPerimeter();
                 break;
             case 13: {
             std::cout << "Inserisci la data di nascita (AAAA MM GG): ";
@@ -149,34 +149,34 @@ void BMICalculator() {
     float weight, height;
 
     // Richiedi all'utente di inserire il peso in kg e l'altezza in metri
-    std::cout << "Inserisci il peso in kg: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci il peso in kg: " << ANSI_COLOR_RESET;
     std::cin >> weight;
-    std::cout << "Inserisci l'altezza in metri: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci l'altezza in metri: " << ANSI_COLOR_RESET;
     std::cin >> height;
 
     // Calcola il BMI utilizzando la formula: BMI = peso (kg) / altezza^2 (m^2)
     float bmi = weight / (height * height);
 
     // Stampa il BMI calcolato
-    std::cout << "Il tuo BMI è: " << bmi << std::endl;
+    std::cout << "Il tuo BMI è: " << ANSI_COLOR_GREEN << bmi << ANSI_COLOR_RESET << std::endl;
 
     // Classifica il BMI in base alle categorie comuni
     if (bmi < 18.5) {
-        std::cout << "Sottopeso" << std::endl;
+        std::cout << ANSI_COLOR_YELLOW << "Categoria: Sottopeso" << ANSI_COLOR_RESET << std::endl;
     } else if (bmi < 24.9) {
-        std::cout << "Normale" << std::endl;
+        std::cout << ANSI_COLOR_GREEN << "Categoria: Normale" << ANSI_COLOR_RESET << std::endl;
     } else if (bmi < 29.9) {
-        std::cout << "Sovrappeso" << std::endl;
+        std::cout << ANSI_COLOR_RED << "Categoria: Sovrappeso" << ANSI_COLOR_RESET << std::endl;
     } else {
-        std::cout << "Obeso" << std::endl;
+        std::cout << ANSI_COLOR_MAGENTA << "Categoria: Obeso" << ANSI_COLOR_RESET << std::endl;
     }
 }
 
-void CalculateAreaAndPermiter(){
+void CalculateAreaAndPerimeter() {
     int choice;
-    double side, length, width, radius, base, height;
+    double side, length, width, radius, base, height, side1, side2, side3;
 
-    std::cout << "Scegli la figura geometrica:\n";
+    std::cout << ANSI_COLOR_CYAN << "Scegli la figura geometrica:\n" << ANSI_COLOR_RESET;
     std::cout << "1. Quadrato\n";
     std::cout << "2. Rettangolo\n";
     std::cout << "3. Cerchio\n";
@@ -186,40 +186,39 @@ void CalculateAreaAndPermiter(){
 
     switch (choice) {
         case 1:
-            std::cout << "Inserisci la lunghezza del lato del quadrato: ";
+            std::cout << ANSI_COLOR_CYAN << "Inserisci la lunghezza del lato del quadrato: " << ANSI_COLOR_RESET;
             std::cin >> side;
-            std::cout << "Area del quadrato: " << side * side << std::endl;
-            std::cout << "Perimetro del quadrato: " << 4 * side << std::endl;
+            std::cout << "Area del quadrato: " << ANSI_COLOR_GREEN << side * side << ANSI_COLOR_RESET << std::endl;
+            std::cout << "Perimetro del quadrato: " << ANSI_COLOR_GREEN << 4 * side << ANSI_COLOR_RESET << std::endl;
             break;
 
         case 2:
-            std::cout << "Inserisci la lunghezza e la larghezza del rettangolo: ";
+            std::cout << ANSI_COLOR_CYAN << "Inserisci la lunghezza e la larghezza del rettangolo: " << ANSI_COLOR_RESET;
             std::cin >> length >> width;
-            std::cout << "Area del rettangolo: " << length * width << std::endl;
-            std::cout << "Perimetro del rettangolo: " << 2 * (length + width) << std::endl;
+            std::cout << "Area del rettangolo: " << ANSI_COLOR_GREEN << length * width << ANSI_COLOR_RESET << std::endl;
+            std::cout << "Perimetro del rettangolo: " << ANSI_COLOR_GREEN << 2 * (length + width) << ANSI_COLOR_RESET << std::endl;
             break;
 
         case 3:
-            std::cout << "Inserisci il raggio del cerchio: ";
+            std::cout << ANSI_COLOR_CYAN << "Inserisci il raggio del cerchio: " << ANSI_COLOR_RESET;
             std::cin >> radius;
-            std::cout << "Area del cerchio: " << M_PI * radius * radius << std::endl;
-            std::cout << "Circonferenza del cerchio: " << 2 * M_PI * radius << std::endl;
+            std::cout << "Area del cerchio: " << ANSI_COLOR_GREEN << M_PI * radius * radius << ANSI_COLOR_RESET << std::endl;
+            std::cout << "Circonferenza del cerchio: " << ANSI_COLOR_GREEN << 2 * M_PI * radius << ANSI_COLOR_RESET << std::endl;
             break;
 
         case 4:
-            std::cout << "Inserisci la base e l'altezza del triangolo: ";
+            std::cout << ANSI_COLOR_CYAN << "Inserisci la base e l'altezza del triangolo: " << ANSI_COLOR_RESET;
             std::cin >> base >> height;
-            std::cout << "Area del triangolo: " << 0.5 * base * height << std::endl;
-            std::cout << "Perimetro del triangolo: Inserisci i lati: ";
-            double side1, side2, side3;
+            std::cout << "Area del triangolo: " << ANSI_COLOR_GREEN << 0.5 * base * height << ANSI_COLOR_RESET << std::endl;
+            std::cout << ANSI_COLOR_CYAN << "Inserisci i lati del triangolo: " << ANSI_COLOR_RESET;
             std::cin >> side1 >> side2 >> side3;
-            std::cout << "Perimetro del triangolo: " << side1 + side2 + side3 << std::endl;
+            std::cout << "Perimetro del triangolo: " << ANSI_COLOR_GREEN << side1 + side2 + side3 << ANSI_COLOR_RESET << std::endl;
             break;
 
         default:
-            std::cout << "Scelta non valida!" << std::endl;
-            break;    
-}
+            std::cout << ANSI_COLOR_RED << "Scelta non valida!" << ANSI_COLOR_RESET << std::endl;
+            break;
+    }
 }
 
 // Funzione per calcolare l'età in base alla data di nascita
@@ -241,25 +240,25 @@ double CalculateTax() {
     int percentTax;
     double income;
 
-    std::cout << "Inserisci l'importo del tuo reddito: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci l'importo del tuo reddito: " << ANSI_COLOR_RESET;
     std::cin >> income;
 
     if (std::cin.fail()) {
-        std::cerr << "Errore nell'input del reddito." << std::endl;
+        std::cerr << ANSI_COLOR_RED << "Errore nell'input del reddito." << ANSI_COLOR_RESET << std::endl;
         return 0.0;
     }
 
-    std::cout << "Inserisci la percentuale della tua aliquota fiscale: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci la percentuale della tua aliquota fiscale: " << ANSI_COLOR_RESET;
     std::cin >> percentTax;
 
     if (std::cin.fail() || percentTax < 0 || percentTax > 100) {
-        std::cerr << "Percentuale tassa non valida." << std::endl;
+        std::cerr << ANSI_COLOR_RED << "Percentuale tassa non valida." << ANSI_COLOR_RESET << std::endl;
         return 0.0;
     }
 
     double tax = (income * percentTax) / 100.0;
 
-    std::cout << "Le tue tasse sono pari a: " << tax << std::endl;
+    std::cout << "Le tue tasse sono pari a: " << ANSI_COLOR_GREEN << tax << ANSI_COLOR_RESET << std::endl;
     return tax;
 }
 

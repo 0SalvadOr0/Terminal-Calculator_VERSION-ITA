@@ -13,7 +13,7 @@
 
 void choice();
 void BMICalculator();
-void CalculateAreaAndPermiter();
+void CalculateAreaAndPerimeter();
 int CalculateAge(const std::tm& birthDate);
 double CalculateTax();
 float CalculateVolume();

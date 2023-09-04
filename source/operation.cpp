@@ -58,30 +58,30 @@ void Sqrt(float &a) {
 
 void Triangle() {
     int t_option;
-    std::cout << "Scegli l'opzione:\n 1. Calcola il cateto\n 2. Calcola l'ipotenusa\n";
+    std::cout << ANSI_COLOR_MAGENTA << "Scegli l'opzione:\n 1. Calcola il cateto\n 2. Calcola l'ipotenusa\n" << ANSI_COLOR_RESET;
     std::cin >> t_option;
     
     float a, b, c;
     
     switch (t_option) {
         case 1:
-            std::cout << "Inserisci il valore dell'ipotenusa: ";
+            std::cout << ANSI_COLOR_CYAN << "Inserisci il valore dell'ipotenusa: " << ANSI_COLOR_RESET;
             std::cin >> a;
-            std::cout << "Inserisci il valore del cateto: ";
+            std::cout << ANSI_COLOR_CYAN << "Inserisci il valore del cateto: " << ANSI_COLOR_RESET;
             std::cin >> b;
             c = std::sqrt(pow(a, 2) - pow(b, 2));
-            std::cout << "Il cateto misura: " << c << std::endl;
+            std::cout << "Il cateto misura: " << ANSI_COLOR_GREEN << c << ANSI_COLOR_RESET << std::endl;
             break;
         case 2:
-            std::cout << "Inserisci il valore del cateto maggiore: ";
+            std::cout << ANSI_COLOR_CYAN << "Inserisci il valore del cateto maggiore: " << ANSI_COLOR_RESET;
             std::cin >> a;
-            std::cout << "Inserisci il valore del cateto minore: ";
+            std::cout << ANSI_COLOR_CYAN << "Inserisci il valore del cateto minore: " << ANSI_COLOR_RESET;
             std::cin >> b;
             c = std::sqrt(pow(a, 2) + pow(b, 2));
-            std::cout << "Il cateto misura: " << c << std::endl;
+            std::cout << "Il cateto misura: " << ANSI_COLOR_GREEN << c << ANSI_COLOR_RESET << std::endl;
             break;
         default:
-            std::cout << "Opzione non valida" << std::endl;
+            std::cout << ANSI_COLOR_RED << "Opzione non valida" << ANSI_COLOR_RESET << std::endl;
             break;
     }
 }
@@ -90,28 +90,28 @@ void PercentageCalculations() {
     int choice;
     float initialValue, percentage, result;
 
-    std::cout << "Scegli l'operazione:\n 1. Calcola la variazione percentuale\n 2. Calcola lo sconto\n";
+    std::cout << ANSI_COLOR_MAGENTA << "Scegli l'operazione:\n 1. Calcola la variazione percentuale\n 2. Calcola lo sconto\n" << ANSI_COLOR_RESET;
     std::cin >> choice;
 
     switch (choice) {
         case 1:
-            std::cout << "Inserisci il valore iniziale: ";
+            std::cout << ANSI_COLOR_CYAN << "Inserisci il valore iniziale: " << ANSI_COLOR_RESET;
             std::cin >> initialValue;
-            std::cout << "Inserisci la percentuale di variazione: ";
+            std::cout << ANSI_COLOR_CYAN << "Inserisci la percentuale di variazione: " << ANSI_COLOR_RESET;
             std::cin >> percentage;
             result = initialValue * (percentage / 100);
-            std::cout << "Variazione percentuale: " << result << std::endl;
+            std::cout << "Variazione percentuale: " << ANSI_COLOR_GREEN << result << ANSI_COLOR_RESET << std::endl;
             break;
         case 2:
-            std::cout << "Inserisci il prezzo originale: ";
+            std::cout << ANSI_COLOR_CYAN << "Inserisci il prezzo originale: " << ANSI_COLOR_RESET;
             std::cin >> initialValue;
-            std::cout << "Inserisci lo sconto in percentuale: ";
+            std::cout << ANSI_COLOR_CYAN << "Inserisci lo sconto in percentuale: " << ANSI_COLOR_RESET;
             std::cin >> percentage;
             result = initialValue - (initialValue * (percentage / 100));
-            std::cout << "Prezzo dopo lo sconto: " << result << std::endl;
+            std::cout << "Prezzo dopo lo sconto: " << ANSI_COLOR_GREEN << result << ANSI_COLOR_RESET << std::endl;
             break;
         default:
-            std::cout << "Opzione non valida.\n";
+            std::cout << ANSI_COLOR_RED << "Opzione non valida." << ANSI_COLOR_RESET << std::endl;
             break;
     }
 }
