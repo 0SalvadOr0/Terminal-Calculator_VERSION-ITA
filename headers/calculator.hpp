@@ -12,8 +12,6 @@
 #include "..\include\expression.hpp"
 
 void choice();
-void Triangle();
-void PercentageCalculations();
 void BMICalculator();
 void CalculateAreaAndPermiter();
 int CalculateAge(const std::tm& birthDate);

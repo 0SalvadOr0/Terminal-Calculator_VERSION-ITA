@@ -39,5 +39,5 @@ void Menu(){
     std::cout << " 16. Calcolatore di volume e superficie\n";
     std::cout << " 17. Espressioni\n";
     std::cout << " 18. Esci\n"; // Aggiornamento del numero dell'opzione "Esci"
-    std::cout << "******************************"<<std::endl;;
+    std::cout << "******************************"<<std::endl;
 }

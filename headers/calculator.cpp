@@ -145,7 +145,6 @@ void choice() {
 }
 
 
-
 void BMICalculator() {
     float weight, height;
 
