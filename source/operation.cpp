@@ -1,58 +1,58 @@
 #include "..\include\operation.hpp"
 
 void addition(float &a, float &b) {
-    std::cout << "Inserisci primo valore: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci primo valore: " << ANSI_COLOR_RESET;
     std::cin >> a;
-    std::cout << "Inserisci secondo valore: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci secondo valore: " << ANSI_COLOR_RESET;
     std::cin >> b;
-    std::cout << "Risultato dell'addizione: " << a + b << std::endl;
+    std::cout << "Risultato dell'addizione: " << ANSI_COLOR_GREEN << a + b << ANSI_COLOR_RESET << std::endl;
 }
 
 void subtraction(float &a, float &b) {
-    std::cout << "Inserisci primo valore: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci primo valore: " << ANSI_COLOR_RESET;
     std::cin >> a;
-    std::cout << "Inserisci secondo valore: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci secondo valore: " << ANSI_COLOR_RESET;
     std::cin >> b;
-    std::cout << "Risultato della sottrazione: " << a - b << std::endl;
+    std::cout << "Risultato della sottrazione: " << ANSI_COLOR_GREEN << a - b << ANSI_COLOR_RESET << std::endl;
 }
 
 void multiplication(float &a, float &b) {
-    std::cout << "Inserisci primo valore: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci primo valore: " << ANSI_COLOR_RESET;
     std::cin >> a;
-    std::cout << "Inserisci secondo valore: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci secondo valore: " << ANSI_COLOR_RESET;
     std::cin >> b;
-    std::cout << "Risultato della moltiplicazione: " << a * b << std::endl;
+    std::cout << "Risultato della moltiplicazione: " << ANSI_COLOR_GREEN << a * b << ANSI_COLOR_RESET << std::endl;
 }
 
 void division(float &a, float &b) {
-    std::cout << "Inserisci primo valore: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci primo valore: " << ANSI_COLOR_RESET;
     std::cin >> a;
-    std::cout << "Inserisci secondo valore: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci secondo valore: " << ANSI_COLOR_RESET;
     std::cin >> b;
 
     if (b == 0) {
-        std::cout << "Divisione per zero non consentita." << std::endl;
+        std::cout << ANSI_COLOR_RED << "Divisione per zero non consentita." << ANSI_COLOR_RESET << std::endl;
     } else {
-        std::cout << "Risultato della divisione: " << a / b << std::endl;
+        std::cout << "Risultato della divisione: " << ANSI_COLOR_GREEN << a / b << ANSI_COLOR_RESET << std::endl;
     }
 }
 
 void Pow(float &a, float &b) {
-    std::cout << "Inserisci il primo valore: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci il primo valore: " << ANSI_COLOR_RESET;
     std::cin >> a;
-    std::cout << "Inserisci il valore della potenza: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci il valore della potenza: " << ANSI_COLOR_RESET;
     std::cin >> b;
-    std::cout << "Risultato finale: " << std::pow(a, b) << std::endl;
+    std::cout << "Risultato finale: " << ANSI_COLOR_GREEN << std::pow(a, b) << ANSI_COLOR_RESET << std::endl;
 }
 
 void Sqrt(float &a) {
-    std::cout << "Inserisci il valore: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci il valore: " << ANSI_COLOR_RESET;
     std::cin >> a;
-    
+
     if (a < 0) {
-        std::cout << "Valore negativo, impossibile calcolare la radice quadrata." << std::endl;
+        std::cout << ANSI_COLOR_RED << "Valore negativo, impossibile calcolare la radice quadrata." << ANSI_COLOR_RESET << std::endl;
     } else {
-        std::cout << "Risultato finale: " << std::sqrt(a) << std::endl;
+        std::cout << "Risultato finale: " << ANSI_COLOR_GREEN << std::sqrt(a) << ANSI_COLOR_RESET << std::endl;
     }
 }
 
