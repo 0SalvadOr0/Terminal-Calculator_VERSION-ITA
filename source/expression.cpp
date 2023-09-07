@@ -5,15 +5,14 @@ using namespace std;
 int calculateExpression(const string& expression) {
     stack<int> numbers;
     stack<char> operators;
+    stack<char> parentheses;  // Stack per gestire le parentesi
 
-    // Funzione locale per determinare la precedenza dell'operatore
     auto precedence = [](char op) {
         if (op == '+' || op == '-') return 1;
         if (op == '*' || op == '/') return 2;
-        return 0; // Operatore sconosciuto o parentesi
+        return 0;
     };
 
-    // Funzione locale per applicare l'operatore
     auto applyOperator = [](int num1, int num2, char op) {
         switch (op) {
             case '+':
@@ -26,11 +25,11 @@ int calculateExpression(const string& expression) {
                 if (num2 != 0) {
                     return num1 / num2;
                 } else {
-                    cerr << "Errore: Divisione per zero" << endl;
+                    cerr << ANSI_COLOR_RED << "Errore: Divisione per zero" << ANSI_COLOR_RESET << endl;
                     exit(1);
                 }
             default:
-                cerr << "Errore: Operatore non valido" << endl;
+                cerr << ANSI_COLOR_RED << "Errore: Operatore non valido" << ANSI_COLOR_RESET << endl;
                 exit(1);
         }
     };
@@ -59,6 +58,28 @@ int calculateExpression(const string& expression) {
                 numbers.push(result);
             }
             operators.push(expression[i]);
+        } else if (expression[i] == '(') {
+            parentheses.push(expression[i]);
+        } else if (expression[i] == ')') {
+            while (!parentheses.empty() && parentheses.top() != '(') {
+                char op = operators.top();
+                operators.pop();
+
+                int num2 = numbers.top();
+                numbers.pop();
+                int num1 = numbers.top();
+                numbers.pop();
+
+                int result = applyOperator(num1, num2, op);
+                numbers.push(result);
+            }
+
+            if (!parentheses.empty()) {
+                parentheses.pop();  // Rimuovi la parentesi aperta corrispondente
+            } else {
+                cerr << ANSI_COLOR_RED << "Errore: Parentesi non bilanciate" << ANSI_COLOR_RESET << endl;
+                exit(1);
+            }
         }
     }
 

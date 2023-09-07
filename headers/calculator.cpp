@@ -62,25 +62,26 @@ void choice() {
                 CalculateAreaAndPerimeter();
                 break;
             case 13: {
-            std::cout << "Inserisci la data di nascita (AAAA MM GG): ";
+            std::cout << ANSI_COLOR_CYAN << "Inserisci la data di nascita (AAAA MM GG): " << ANSI_COLOR_RESET;
             std::tm birthDate = {};
             std::cin >> std::get_time(&birthDate, "%Y %m %d");
 
             if (std::cin.fail()) {
-                std::cerr << "Errore nell'input della data." << std::endl;
+                std::cerr << ANSI_COLOR_RED << "Errore nell'input della data." << ANSI_COLOR_RESET << std::endl;
                 break;
             }
 
             int age = CalculateAge(birthDate);
-            std::cout << "La tua età e': " << age << " anni." << std::endl;
+            std::cout << ANSI_COLOR_GREEN << "La tua età e': " << age << " anni." << ANSI_COLOR_RESET << std::endl;
             break;
         }
             case 14: 
                 CalculateTax();
                 break;    
            case 15:
-    std::cout << "Lunghezza della password:\n 1. 6 Caratteri\n 2. 8 Caratteri\n 3. 12 Caratteri\n 4. 24 caratteri\n";
+    std::cout << ANSI_COLOR_BLUE << "Lunghezza della password:\n 1. 6 Caratteri\n 2. 8 Caratteri\n 3. 12 Caratteri\n 4. 24 caratteri\n" << ANSI_COLOR_RESET;
     std::cin >> choice;
+    std::cout << "******************************" << std::endl;
 
     switch (choice) {
         case 1:
@@ -96,18 +97,19 @@ void choice() {
              passwordLength = 24;
              break;
         default:
-            std::cout << "Scelta non valida." << std::endl;
+            std::cout << ANSI_COLOR_RED << "Scelta non valida." << ANSI_COLOR_RESET << std::endl;
             break;
     }
 
     if (passwordLength > 0) {
         std::string generatedPassword = generateRandomPassword(passwordLength);
-        std::cout << "Password generata con successo: " << generatedPassword << std::endl;
-        std::cout << "Non mostrare la tua password a nessuno" << std::endl;
+        std::cout << ANSI_COLOR_GREEN << "Password generata con successo: " << ANSI_COLOR_RESET << ANSI_COLOR_YELLOW << generatedPassword << ANSI_COLOR_RESET << std::endl;
+        std::cout << ANSI_COLOR_MAGENTA << "Non mostrare la tua password a nessuno" << ANSI_COLOR_RESET << std::endl;
     }
     break;
             case 16:
-            std::cout << "Opzioni:\n 1. Calcolatore di Volume\n 2. Calcolatore di superficie\n";
+            std::cout << ANSI_COLOR_BLUE << "Opzioni:\n 1. Calcolatore di Volume\n 2. Calcolatore di superficie\n" << ANSI_COLOR_RESET;
+            std::cout << "******************************" << std::endl;
             std::cin >> choice;
 
             switch (choice)
@@ -125,12 +127,12 @@ void choice() {
             case 17:
     {
         std::string expression;
-        std::cout << "Inserisci un'espressione algebrica: ";
+        std::cout << ANSI_COLOR_CYAN << "Inserisci un'espressione algebrica: " << ANSI_COLOR_RESET;
         std::cin.ignore(); // Per eliminare eventuali caratteri residui nel buffer
         std::getline(std::cin, expression);
 
         int result = calculateExpression(expression);
-        std::cout << "Risultato: " << result << std::endl;
+        std::cout << ANSI_COLOR_GREEN << "Risultato: " << ANSI_COLOR_RESET << ANSI_COLOR_YELLOW << result << ANSI_COLOR_RESET  << std::endl;
     }
     break;
 
@@ -138,7 +140,7 @@ void choice() {
                 exitProgram = true;  // Imposta la variabile per uscire dal ciclo
                 break;
             default:
-                std::cout << "Opzione non valida.\n";
+                std::cout << ANSI_COLOR_RED << "Opzione non valida.\n" << ANSI_COLOR_RESET;
                 break;
         }
     }
@@ -176,13 +178,14 @@ void CalculateAreaAndPerimeter() {
     int choice;
     double side, length, width, radius, base, height, side1, side2, side3;
 
-    std::cout << ANSI_COLOR_CYAN << "Scegli la figura geometrica:\n" << ANSI_COLOR_RESET;
+    std::cout << ANSI_COLOR_CYAN << "Scegli la figura geometrica:\n";
     std::cout << "1. Quadrato\n";
     std::cout << "2. Rettangolo\n";
     std::cout << "3. Cerchio\n";
-    std::cout << "4. Triangolo\n";
+    std::cout << "4. Triangolo\n"<< ANSI_COLOR_RESET;
     std::cout << "Scelta: ";
     std::cin >> choice;
+    std::cout << "******************************" << std::endl;
 
     switch (choice) {
         case 1:
@@ -268,29 +271,34 @@ float CalculateVolume() {
     float volume = 0.0;
     int shape;
 
-    std::cout << "Inserisci il valore del raggio: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci il valore del raggio: " << ANSI_COLOR_RESET;
     std::cin >> radius;
 
-    std::cout << "Decidi il tipo di figura:\n 1. Sfera\n 2. Cilindro\n 3. Cono\n";
+    std::cout << ANSI_COLOR_BLUE << "Decidi il tipo di figura:\n 1. Sfera\n 2. Cilindro\n 3. Cono\n" << ANSI_COLOR_RESET;
     std::cin >> shape;
 
+    std::cout << "******************************" << std::endl;
     if (shape == 1) {
         // Sfera
         volume = 4.0 / 3.0 * M_PI * radius * radius * radius;
-        std::cout << "Il volume misura: " << volume << std::endl;
+        std::cout << ANSI_COLOR_GREEN << "Il volume misura: " << ANSI_COLOR_RESET << ANSI_COLOR_YELLOW << volume << ANSI_COLOR_RESET <<std::endl;
     } else if (shape == 2) {
-        std::cout << "Inserisci il valore dell'altezza: ";
+        std::cout << ANSI_COLOR_CYAN << "Inserisci il valore dell'altezza: " << ANSI_COLOR_RESET;
         std::cin >> height;
         // Cilindro
         volume = M_PI * radius * radius * height;
-        std::cout << "Il volume misura: " << volume << std::endl;
+        std::cout << ANSI_COLOR_GREEN << "Il volume misura: " << ANSI_COLOR_RESET << ANSI_COLOR_YELLOW << volume << ANSI_COLOR_RESET <<std::endl;
     } else if (shape == 3) {
-        std::cout << "Inserisci il valore dell'altezza: ";
+        std::cout << ANSI_COLOR_CYAN << "Inserisci il valore dell'altezza: " << ANSI_COLOR_RESET;
         std::cin >> height;
         // Cono
         volume = 1.0 / 3.0 * M_PI * radius * radius * height;
-        std::cout << "Il volume misura: " << volume << std::endl;
+        std::cout << ANSI_COLOR_GREEN << "Il volume misura: " << ANSI_COLOR_RESET << ANSI_COLOR_YELLOW << volume << ANSI_COLOR_RESET << std::endl;
+    }else
+    {
+        std::cout << ANSI_COLOR_RED << "Tipo di figura non trovato" << ANSI_COLOR_RESET << std::endl;
     }
+    
     return volume;
 }
 
@@ -300,30 +308,36 @@ float CalculateSurface() {
     float surface = 0.0;
     int shape;
 
-    std::cout << "Inserisci il valore del raggio: ";
+    std::cout << ANSI_COLOR_CYAN << "Inserisci il valore del raggio: " << ANSI_COLOR_RESET;
     std::cin >> radius;
 
-    std::cout << "Decidi il tipo di figura:\n 1. Sfera\n 2. Cilindro\n 3. Cono\n";
+    std::cout << ANSI_COLOR_BLUE << "Decidi il tipo di figura:\n 1. Sfera\n 2. Cilindro\n 3. Cono\n" << ANSI_COLOR_RESET;
     std::cin >> shape;
 
+    std::cout << "******************************" << std::endl;
+
     if (shape == 1) {
-        // Sfera  
+        // Sfera
         surface = 4 * M_PI * radius * radius;
-        std::cout << "La superficie misura: " << surface << std::endl;
+        std::cout << ANSI_COLOR_GREEN << "La superficie misura: " << ANSI_COLOR_YELLOW << surface << ANSI_COLOR_RESET << std::endl;
     } else if (shape == 2) {
-        std::cout << "Inserisci il valore dell'altezza: ";
+        std::cout << ANSI_COLOR_CYAN << "Inserisci il valore dell'altezza: " << ANSI_COLOR_RESET;
         std::cin >> height;
         // Cilindro
         surface = 2 * M_PI * radius * (radius + height);
-        std::cout << "La superficie misura: " << surface << std::endl;
+        std::cout << ANSI_COLOR_GREEN << "La superficie misura: " << ANSI_COLOR_YELLOW << surface << ANSI_COLOR_RESET << std::endl;
     } else if (shape == 3) {
-        std::cout << "Inserisci il valore dell'altezza: ";
+        std::cout << ANSI_COLOR_CYAN << "Inserisci il valore dell'altezza: " << ANSI_COLOR_RESET;
         std::cin >> height;
         // Cono
         slantHeight = sqrt(radius * radius + height * height);
         surface = M_PI * radius * (radius + slantHeight);
-        std::cout << "La superficie misura: " << surface << std::endl;
+        std::cout << ANSI_COLOR_GREEN << "La superficie misura: " << ANSI_COLOR_YELLOW << surface << ANSI_COLOR_RESET << std::endl;
+    } else {
+        std::cout << ANSI_COLOR_RED << "Tipo di figura non trovato" << ANSI_COLOR_RESET << std::endl;
     }
+
     return surface;
 }
+
 
