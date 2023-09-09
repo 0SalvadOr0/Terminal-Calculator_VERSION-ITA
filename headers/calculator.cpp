@@ -137,6 +137,16 @@ void choice() {
     break;
 
             case 18:
+                 std::cout << "******************************" << std::endl;
+                 std::cout << ANSI_COLOR_MAGENTA << "Inserisci il coefficiente a: " << ANSI_COLOR_RESET;
+                 std::cin >> a;
+                 std::cout << ANSI_COLOR_MAGENTA << "Inserisci il coefficiente b: " << ANSI_COLOR_RESET;
+                 std::cin >> b;
+
+                 solveLinearEquation(a, b);
+                 break;
+
+            case 19:
                 exitProgram = true;  // Imposta la variabile per uscire dal ciclo
                 break;
             default:

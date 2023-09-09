@@ -10,6 +10,7 @@
 #include "..\include\operation.hpp"
 #include "..\include\trigoOperation.hpp"
 #include "..\include\expression.hpp"
+#include "..\include\equations.hpp"
 
 void choice();
 void BMICalculator();

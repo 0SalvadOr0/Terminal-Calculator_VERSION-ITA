@@ -1,9 +1,10 @@
 main.cpp
+headers/calculator.cpp
 source/converter.cpp
 source/design.cpp
 source/GeneratePassword.cpp
 source/operation.cpp
 source/trigoOperation.cpp
 source/expression.cpp
-headers/calculator.cpp
+source/equations.cpp
 

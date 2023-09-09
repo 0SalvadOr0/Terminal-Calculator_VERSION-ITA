@@ -40,6 +40,7 @@ void Menu(){
     std::cout << " 15. " << ANSI_COLOR_GREEN << "Generatore di Password" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << " 16. " << ANSI_COLOR_GREEN << "Calcolatore di volume e superficie" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << " 17. " << ANSI_COLOR_GREEN << "Espressioni" << ANSI_COLOR_YELLOW << std::endl;
-    std::cout << " 18. " << ANSI_COLOR_GREEN << "Esci" << ANSI_COLOR_YELLOW << std::endl;
+    std::cout << " 18. " << ANSI_COLOR_GREEN << "Equazioni del tipo ax+b = 0" << ANSI_COLOR_YELLOW << std::endl;
+    std::cout << " 19. " << ANSI_COLOR_GREEN << "Esci" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << ANSI_COLOR_RESET;
 }
