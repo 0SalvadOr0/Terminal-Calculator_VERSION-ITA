@@ -12,13 +12,12 @@ void choice() {
     int option;
     int choice;
     bool exitProgram = false;  // Aggiunta della variabile di controllo per l'uscita
-    int passwordLength = 0; // Inizializzo la variabile passwordLength
 
 
     while (!exitProgram) {  // Utilizzo di un ciclo per mantenere il menu attivo
         Title();
         Menu();
-         std::cout << "Inserisci la tua scelta: ";
+        std::cout << "Inserisci la tua scelta: ";
         std::cin >> option;
         
 
@@ -79,34 +78,8 @@ void choice() {
                 CalculateTax();
                 break;    
            case 15:
-    std::cout << ANSI_COLOR_BLUE << "Lunghezza della password:\n 1. 6 Caratteri\n 2. 8 Caratteri\n 3. 12 Caratteri\n 4. 24 caratteri\n" << ANSI_COLOR_RESET;
-    std::cin >> choice;
-    std::cout << "******************************" << std::endl;
-
-    switch (choice) {
-        case 1:
-            passwordLength = 6;
+           checkDecision();
             break;
-        case 2:
-            passwordLength = 8;
-            break;
-        case 3:
-            passwordLength = 12;
-            break;
-        case 4:
-             passwordLength = 24;
-             break;
-        default:
-            std::cout << ANSI_COLOR_RED << "Scelta non valida." << ANSI_COLOR_RESET << std::endl;
-            break;
-    }
-
-    if (passwordLength > 0) {
-        std::string generatedPassword = generateRandomPassword(passwordLength);
-        std::cout << ANSI_COLOR_GREEN << "Password generata con successo: " << ANSI_COLOR_RESET << ANSI_COLOR_YELLOW << generatedPassword << ANSI_COLOR_RESET << std::endl;
-        std::cout << ANSI_COLOR_MAGENTA << "Non mostrare la tua password a nessuno" << ANSI_COLOR_RESET << std::endl;
-    }
-    break;
             case 16:
             std::cout << ANSI_COLOR_BLUE << "Opzioni:\n 1. Calcolatore di Volume\n 2. Calcolatore di superficie\n" << ANSI_COLOR_RESET;
             std::cout << "******************************" << std::endl;

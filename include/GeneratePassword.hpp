@@ -7,4 +7,14 @@
 
 std::string generateRandomPassword(int length);
 
+enum PasswordStrength {
+    Weak,
+    Moderate,
+    Strong,
+};
+
+PasswordStrength checkPasswordStrength(const std::string &password);
+
+void checkDecision();
+
 #endif

@@ -10,8 +10,10 @@
 #include <iomanip>
 #include <cstdlib>
 #include <random>
-#include  <iomanip>
+#include <iomanip>
 #include <stack>
+#include <regex>
+#include <algorithm>
 #include "colors.hpp"
 
 #endif
