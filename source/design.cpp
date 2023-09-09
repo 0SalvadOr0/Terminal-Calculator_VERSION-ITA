@@ -37,7 +37,7 @@ void Menu(){
     std::cout << " 12. " << ANSI_COLOR_GREEN << "Calcolo Area e Perimetro" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << " 13. " << ANSI_COLOR_GREEN << "Calcolatore dell'eta'" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << " 14. " << ANSI_COLOR_GREEN << "Calcolatore delle tasse" << ANSI_COLOR_YELLOW << std::endl;
-    std::cout << " 15. " << ANSI_COLOR_GREEN << "Generatore di Password" << ANSI_COLOR_YELLOW << std::endl;
+    std::cout << " 15. " << ANSI_COLOR_GREEN << "Password" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << " 16. " << ANSI_COLOR_GREEN << "Calcolatore di volume e superficie" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << " 17. " << ANSI_COLOR_GREEN << "Espressioni" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << " 18. " << ANSI_COLOR_GREEN << "Equazioni del tipo ax+b = 0" << ANSI_COLOR_YELLOW << std::endl;

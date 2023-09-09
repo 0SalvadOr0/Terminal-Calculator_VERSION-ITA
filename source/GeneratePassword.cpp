@@ -134,7 +134,7 @@ void checkDecision(){
             std::cout << ANSI_COLOR_RED << "La tua password e' debole." << ANSI_COLOR_RESET << std::endl;
             break;
         case Moderate:
-            std::cout << ANSI_COLOR_YELLOW << "La tua password e' di media complessità." << ANSI_COLOR_RESET << std::endl;
+            std::cout << ANSI_COLOR_YELLOW << "La tua password e' di media complessita'." << ANSI_COLOR_RESET << std::endl;
             break;
         case Strong:
             std::cout << ANSI_COLOR_GREEN << "La tua password e' forte." << ANSI_COLOR_RESET << std::endl;
