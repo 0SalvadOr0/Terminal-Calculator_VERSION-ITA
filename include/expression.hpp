@@ -6,6 +6,6 @@
 #include "..\lib\libs.hpp"
 #include <string>
 
-int calculateExpression(const std::string& expression);
+float calculateExpression(const std::string& expression);
 
 #endif

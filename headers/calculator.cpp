@@ -97,16 +97,15 @@ void choice() {
                 break;
             }
             break;
-            case 17:
-    {
-        std::string expression;
-        std::cout << ANSI_COLOR_CYAN << "Inserisci un'espressione algebrica: " << ANSI_COLOR_RESET;
-        std::cin.ignore(); // Per eliminare eventuali caratteri residui nel buffer
-        std::getline(std::cin, expression);
+         case 17: {
+    std::string expression;
+    std::cout << ANSI_COLOR_CYAN << "Inserisci un'espressione algebrica: " << ANSI_COLOR_RESET;
+    std::cin.ignore(); // Per eliminare eventuali caratteri residui nel buffer
+    std::getline(std::cin, expression);
 
-        int result = calculateExpression(expression);
-        std::cout << ANSI_COLOR_GREEN << "Risultato: " << ANSI_COLOR_RESET << ANSI_COLOR_YELLOW << result << ANSI_COLOR_RESET  << std::endl;
-    }
+    float result = calculateExpression(expression); // Modificato da int a float
+    std::cout << ANSI_COLOR_GREEN << "Risultato: " << ANSI_COLOR_RESET << ANSI_COLOR_YELLOW << result << ANSI_COLOR_RESET  << std::endl;
+}
     break;
 
             case 18:
