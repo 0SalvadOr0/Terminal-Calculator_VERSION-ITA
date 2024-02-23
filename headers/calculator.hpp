@@ -11,6 +11,7 @@
 #include "..\include\trigoOperation.hpp"
 #include "..\include\expression.hpp"
 #include "..\include\equations.hpp"
+#include "..\include\statistics.hpp"
 
 void choice();
 void BMICalculator();

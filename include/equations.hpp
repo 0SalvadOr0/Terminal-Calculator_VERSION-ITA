@@ -6,5 +6,6 @@
 #include "..\lib\libs.hpp"
 
 double solveLinearEquation(double a, double b);
+float CramerSistemEquation();
 
 #endif

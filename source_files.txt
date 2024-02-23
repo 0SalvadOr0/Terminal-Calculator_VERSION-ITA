@@ -7,4 +7,4 @@ source/operation.cpp
 source/trigoOperation.cpp
 source/expression.cpp
 source/equations.cpp
-
+source/statistics.cpp

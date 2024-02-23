@@ -9,7 +9,7 @@
       "stopAtEntry": false,
       "externalConsole": true,
       "cwd": "c:/Users/grizz/Terminal-Calculator_VERSION-ITA",
-      "program": "c:/Users/grizz/Terminal-Calculator_VERSION-ITA/build/Debug/outDebug",
+      "program": "c:/Users/grizz/Terminal-Calculator_VERSION-ITA/build/Release/outRelease",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
@@ -19,6 +19,17 @@
           "ignoreFailures": true
         }
       ]
+    },
+    {
+      "name": "(Windows) Launch",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "enter program name, for example ${workspaceFolder}/a.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "console": "externalTerminal"
     }
   ]
 }

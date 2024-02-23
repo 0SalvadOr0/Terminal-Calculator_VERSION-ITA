@@ -14,6 +14,7 @@
 #include <stack>
 #include <regex>
 #include <algorithm>
+#include <numeric>
 #include "colors.hpp"
 
 #endif

@@ -24,6 +24,9 @@ void choice() {
         float a, b;
 
         switch (option) {
+            case 0:
+                exitProgram = true;  // Imposta la variabile per uscire dal ciclo
+                break;
             case 1:
                 addition(a, b);
                 break;
@@ -98,29 +101,48 @@ void choice() {
             }
             break;
          case 17: {
-    std::string expression;
-    std::cout << ANSI_COLOR_CYAN << "Inserisci un'espressione algebrica: " << ANSI_COLOR_RESET;
-    std::cin.ignore(); // Per eliminare eventuali caratteri residui nel buffer
-    std::getline(std::cin, expression);
+            std::string expression;
+            std::cout << ANSI_COLOR_CYAN << "Inserisci un'espressione algebrica: " << ANSI_COLOR_RESET;
+            std::cin.ignore(); // Per eliminare eventuali caratteri residui nel buffer
+            std::getline(std::cin, expression);
 
-    float result = calculateExpression(expression); // Modificato da int a float
-    std::cout << ANSI_COLOR_GREEN << "Risultato: " << ANSI_COLOR_RESET << ANSI_COLOR_YELLOW << result << ANSI_COLOR_RESET  << std::endl;
+            float result = calculateExpression(expression); // Modificato da int a float
+            std::cout << ANSI_COLOR_GREEN << "Risultato: " << ANSI_COLOR_RESET << ANSI_COLOR_YELLOW << result << ANSI_COLOR_RESET  << std::endl;
 }
-    break;
+            break;
 
-            case 18:
-                 std::cout << "******************************" << std::endl;
-                 std::cout << ANSI_COLOR_MAGENTA << "Inserisci il coefficiente a: " << ANSI_COLOR_RESET;
-                 std::cin >> a;
-                 std::cout << ANSI_COLOR_MAGENTA << "Inserisci il coefficiente b: " << ANSI_COLOR_RESET;
-                 std::cin >> b;
+           case 18:
+            std::cout << ANSI_COLOR_BLUE << "Opzioni:\n 1. Equazioni lineari del tipo ax+b = 0\n 2. Sistemi lineari\n" << ANSI_COLOR_RESET;
+            std::cout << "******************************" << std::endl;
+            std::cin >> choice;
+            while(std::cin.fail()) {
+                std::cout << "Input non valido. Per favore inserisci un numero: ";
+                std::cin.clear();
+                std::cin.ignore(256,'\n');
+                std::cin >> choice;
+                }
 
-                 solveLinearEquation(a, b);
-                 break;
+            switch (choice)
+            {
+            case 1:
+                std::cout << "******************************" << std::endl;
+                std::cout << ANSI_COLOR_MAGENTA << "Inserisci il coefficiente a: " << ANSI_COLOR_RESET;
+                std::cin >> a;
+                std::cout << ANSI_COLOR_MAGENTA << "Inserisci il coefficiente b: " << ANSI_COLOR_RESET;
+                std::cin >> b;
 
-            case 19:
-                exitProgram = true;  // Imposta la variabile per uscire dal ciclo
+                solveLinearEquation(a, b);
                 break;
+            case 2: 
+                CramerSistemEquation();
+                break; 
+            default:
+                break;
+            }
+            break;
+            case 19: 
+            statistics();
+            break;
             default:
                 std::cout << ANSI_COLOR_RED << "Opzione non valida.\n" << ANSI_COLOR_RESET;
                 break;

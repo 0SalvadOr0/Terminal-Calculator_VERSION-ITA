@@ -23,6 +23,7 @@ void Menu(){
     std::cout << "******************************" << std::endl;
     std::cout << ANSI_COLOR_YELLOW;
     std::cout << "Scegli l'opzione:" << std::endl;
+    std::cout << " 0. " << ANSI_COLOR_GREEN << "Esci" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << " 1. " << ANSI_COLOR_GREEN << "Addizione" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << " 2. " << ANSI_COLOR_GREEN << "Sottrazione" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << " 3. " << ANSI_COLOR_GREEN << "Moltiplicazione" << ANSI_COLOR_YELLOW << std::endl;
@@ -40,7 +41,7 @@ void Menu(){
     std::cout << " 15. " << ANSI_COLOR_GREEN << "Password" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << " 16. " << ANSI_COLOR_GREEN << "Calcolatore di volume e superficie" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << " 17. " << ANSI_COLOR_GREEN << "Espressioni" << ANSI_COLOR_YELLOW << std::endl;
-    std::cout << " 18. " << ANSI_COLOR_GREEN << "Equazioni del tipo ax+b = 0" << ANSI_COLOR_YELLOW << std::endl;
-    std::cout << " 19. " << ANSI_COLOR_GREEN << "Esci" << ANSI_COLOR_YELLOW << std::endl;
+    std::cout << " 18. " << ANSI_COLOR_GREEN << "Equazioni" << ANSI_COLOR_YELLOW << std::endl;
+    std::cout << " 19. " << ANSI_COLOR_GREEN << "Statistica" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << ANSI_COLOR_RESET;
 }

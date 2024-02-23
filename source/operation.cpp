@@ -1,6 +1,6 @@
 #include "..\include\operation.hpp"
 
-void addition(float &a, float &b) {
+void addition(float a, float b) {
     std::cout << ANSI_COLOR_CYAN << "Inserisci primo valore: " << ANSI_COLOR_RESET;
     std::cin >> a;
     std::cout << ANSI_COLOR_CYAN << "Inserisci secondo valore: " << ANSI_COLOR_RESET;
@@ -8,7 +8,7 @@ void addition(float &a, float &b) {
     std::cout << "Risultato dell'addizione: " << ANSI_COLOR_GREEN << a + b << ANSI_COLOR_RESET << std::endl;
 }
 
-void subtraction(float &a, float &b) {
+void subtraction(float a, float b) {
     std::cout << ANSI_COLOR_CYAN << "Inserisci primo valore: " << ANSI_COLOR_RESET;
     std::cin >> a;
     std::cout << ANSI_COLOR_CYAN << "Inserisci secondo valore: " << ANSI_COLOR_RESET;
@@ -16,7 +16,7 @@ void subtraction(float &a, float &b) {
     std::cout << "Risultato della sottrazione: " << ANSI_COLOR_GREEN << a - b << ANSI_COLOR_RESET << std::endl;
 }
 
-void multiplication(float &a, float &b) {
+void multiplication(float a, float b) {
     std::cout << ANSI_COLOR_CYAN << "Inserisci primo valore: " << ANSI_COLOR_RESET;
     std::cin >> a;
     std::cout << ANSI_COLOR_CYAN << "Inserisci secondo valore: " << ANSI_COLOR_RESET;
@@ -24,7 +24,7 @@ void multiplication(float &a, float &b) {
     std::cout << "Risultato della moltiplicazione: " << ANSI_COLOR_GREEN << a * b << ANSI_COLOR_RESET << std::endl;
 }
 
-void division(float &a, float &b) {
+void division(float a, float b) {
     std::cout << ANSI_COLOR_CYAN << "Inserisci primo valore: " << ANSI_COLOR_RESET;
     std::cin >> a;
     std::cout << ANSI_COLOR_CYAN << "Inserisci secondo valore: " << ANSI_COLOR_RESET;
@@ -37,7 +37,7 @@ void division(float &a, float &b) {
     }
 }
 
-void Pow(float &a, float &b) {
+void Pow(float a, float b) {
     std::cout << ANSI_COLOR_CYAN << "Inserisci il primo valore: " << ANSI_COLOR_RESET;
     std::cin >> a;
     std::cout << ANSI_COLOR_CYAN << "Inserisci il valore della potenza: " << ANSI_COLOR_RESET;
@@ -45,7 +45,7 @@ void Pow(float &a, float &b) {
     std::cout << "Risultato finale: " << ANSI_COLOR_GREEN << std::pow(a, b) << ANSI_COLOR_RESET << std::endl;
 }
 
-void Sqrt(float &a) {
+void Sqrt(float a) {
     std::cout << ANSI_COLOR_CYAN << "Inserisci il valore: " << ANSI_COLOR_RESET;
     std::cin >> a;
 
