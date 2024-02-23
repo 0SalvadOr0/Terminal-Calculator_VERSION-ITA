@@ -164,7 +164,8 @@ void CalculateAreaAndPerimeter() {
     std::cout << "1. Quadrato\n";
     std::cout << "2. Rettangolo\n";
     std::cout << "3. Cerchio\n";
-    std::cout << "4. Triangolo\n"<< ANSI_COLOR_RESET;
+    std::cout << "4. Triangolo\n";
+    std::cout << "5. Trapezio\n" << ANSI_COLOR_RESET;
     std::cout << "Scelta: ";
     std::cin >> choice;
     std::cout << "******************************" << std::endl;
@@ -199,7 +200,12 @@ void CalculateAreaAndPerimeter() {
             std::cin >> side1 >> side2 >> side3;
             std::cout << "Perimetro del triangolo: " << ANSI_COLOR_GREEN << side1 + side2 + side3 << ANSI_COLOR_RESET << std::endl;
             break;
-
+        case 5:
+            std::cout << ANSI_COLOR_CYAN << "Inserisci le lunghezze delle basi e l'altezza del trapezio: " << ANSI_COLOR_RESET;
+            std::cin >> base >> side >> height;
+            std::cout << "Area del trapezio: " << ANSI_COLOR_GREEN << 0.5 * (base + side) * height << ANSI_COLOR_RESET << std::endl;
+            std::cout << "Perimetro del trapezio: " << ANSI_COLOR_GREEN << base + side + 2 * sqrt(pow((base - side) / 2, 2) + pow(height, 2)) << ANSI_COLOR_RESET << std::endl;
+            break;           
         default:
             std::cout << ANSI_COLOR_RED << "Scelta non valida!" << ANSI_COLOR_RESET << std::endl;
             break;
