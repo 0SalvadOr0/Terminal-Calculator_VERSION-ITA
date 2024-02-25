@@ -12,6 +12,7 @@
 #include "..\include\expression.hpp"
 #include "..\include\equations.hpp"
 #include "..\include\statistics.hpp"
+#include "..\include\graphics.hpp"
 
 void choice();
 void BMICalculator();

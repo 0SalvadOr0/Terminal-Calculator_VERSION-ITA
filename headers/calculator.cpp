@@ -19,9 +19,10 @@ void choice() {
         Menu();
         std::cout << "Inserisci la tua scelta: ";
         std::cin >> option;
-        
 
-        float a, b;
+        float a,b;
+        std::string y;
+
 
         switch (option) {
             case 0:
@@ -142,6 +143,12 @@ void choice() {
             break;
             case 19: 
             statistics();
+            break;
+            case 20:
+            std::cout << "Inserisci il valore di y: ";
+            std::cin.ignore();
+            std::cin >> y;
+            graphics(y);
             break;
             default:
                 std::cout << ANSI_COLOR_RED << "Opzione non valida.\n" << ANSI_COLOR_RESET;

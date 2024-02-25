@@ -43,5 +43,6 @@ void Menu(){
     std::cout << " 17. " << ANSI_COLOR_GREEN << "Espressioni" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << " 18. " << ANSI_COLOR_GREEN << "Equazioni" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << " 19. " << ANSI_COLOR_GREEN << "Statistica" << ANSI_COLOR_YELLOW << std::endl;
+    std::cout << " 19. " << ANSI_COLOR_GREEN << "Creazione di grafici" << ANSI_COLOR_YELLOW << std::endl;
     std::cout << ANSI_COLOR_RESET;
 }

@@ -16,5 +16,6 @@
 #include <algorithm>
 #include <numeric>
 #include "colors.hpp"
+#include "thirdParty/gnuplot-iostream.h"
 
 #endif

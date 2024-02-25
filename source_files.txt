@@ -8,3 +8,4 @@ source/trigoOperation.cpp
 source/expression.cpp
 source/equations.cpp
 source/statistics.cpp
+source/graphics.cpp
