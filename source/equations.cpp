@@ -102,3 +102,26 @@ float CramerSistemEquation() {
 
     return 0;
 }
+
+//ax^2+bx+c=0
+void solveQuadratic() {
+    double a, b, c;
+
+    std::cout << "Inserisci il valore del coefficiente a: ";
+    std::cin >> a;
+    std::cout << "Inserisci il valore del coefficiente b: ";
+    std::cin >> b;
+    std::cout << "Inserisci il valore del valore c: ";
+    std::cin >> c;
+
+    double discriminant = b*b - 4*a*c;
+
+
+    if (discriminant < 0) {
+        std::cout << "L'equazione non ha soluzioni reali.\n";
+    } else {
+        double x1 = (-b + std::sqrt(discriminant)) / (2*a);
+        double x2 = (-b - std::sqrt(discriminant)) / (2*a);
+        std::cout << "Le soluzioni dell'equazione sono " << x1 << " e " << x2 << ".\n";
+    }
+}

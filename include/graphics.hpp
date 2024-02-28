@@ -6,6 +6,8 @@
 #include "..\lib\colors.hpp"
 #include "expression.hpp"
 
-void graphics(const std::string& y_expr);
+void graphics2D(const std::string& y_expr, const std::string &title);
+void graphics3D(const std::string& z_expr, const std::string& title);
+void graphics();
 
 #endif

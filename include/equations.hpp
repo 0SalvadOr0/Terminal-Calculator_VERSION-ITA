@@ -7,5 +7,6 @@
 
 double solveLinearEquation(double a, double b);
 float CramerSistemEquation();
+void solveQuadratic();
 
 #endif

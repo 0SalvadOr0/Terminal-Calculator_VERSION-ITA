@@ -111,7 +111,17 @@
     "complex": "cpp",
     "cstring": "cpp",
     "fstream": "cpp",
-    "cinttypes": "cpp"
+    "cinttypes": "cpp",
+    "condition_variable": "cpp",
+    "list": "cpp",
+    "ratio": "cpp",
+    "source_location": "cpp",
+    "mutex": "cpp",
+    "semaphore": "cpp",
+    "shared_mutex": "cpp",
+    "stop_token": "cpp",
+    "thread": "cpp",
+    "cfenv": "cpp"
   },
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "python.testing.unittestArgs": [

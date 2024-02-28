@@ -22,6 +22,7 @@ void choice() {
 
         float a,b;
         std::string y;
+        std::string expression;
 
 
         switch (option) {
@@ -101,19 +102,23 @@ void choice() {
                 break;
             }
             break;
-         case 17: {
-            std::string expression;
-            std::cout << ANSI_COLOR_CYAN << "Inserisci un'espressione algebrica: " << ANSI_COLOR_RESET;
-            std::cin.ignore(); // Per eliminare eventuali caratteri residui nel buffer
+         case 17:
+            std::cout << "Inserisci un espressione: ";
+            std::cin.ignore(); // Clear the input buffer
             std::getline(std::cin, expression);
 
-            float result = calculateExpression(expression); // Modificato da int a float
-            std::cout << ANSI_COLOR_GREEN << "Risultato: " << ANSI_COLOR_RESET << ANSI_COLOR_YELLOW << result << ANSI_COLOR_RESET  << std::endl;
-}
-            break;
+    try {
+        float result = calculateExpression(expression);
+        std::cout << "Risultato: " << result << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    break;
+
 
            case 18:
-            std::cout << ANSI_COLOR_BLUE << "Opzioni:\n 1. Equazioni lineari del tipo ax+b = 0\n 2. Sistemi lineari\n" << ANSI_COLOR_RESET;
+            std::cout << ANSI_COLOR_BLUE << "Opzioni:\n 1. Equazioni lineari del tipo ax+b = 0\n 2. Sistemi lineari\n 3. Equazioni quadratiche del tipo ax^2+bx+c=0\n" << ANSI_COLOR_RESET;
             std::cout << "******************************" << std::endl;
             std::cin >> choice;
             while(std::cin.fail()) {
@@ -137,6 +142,9 @@ void choice() {
             case 2: 
                 CramerSistemEquation();
                 break; 
+            case 3:
+                solveQuadratic();
+                break;
             default:
                 break;
             }
@@ -145,10 +153,7 @@ void choice() {
             statistics();
             break;
             case 20:
-            std::cout << "Inserisci il valore di y: ";
-            std::cin.ignore();
-            std::cin >> y;
-            graphics(y);
+            graphics();
             break;
             default:
                 std::cout << ANSI_COLOR_RED << "Opzione non valida.\n" << ANSI_COLOR_RESET;
