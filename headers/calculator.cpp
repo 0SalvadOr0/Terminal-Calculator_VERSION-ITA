@@ -30,42 +30,27 @@ void choice() {
                 exitProgram = true;  // Imposta la variabile per uscire dal ciclo
                 break;
             case 1:
-                addition(a, b);
+                operation();
                 break;
             case 2:
-                subtraction(a, b);
-                break;
-            case 3:
-                multiplication(a, b);
-                break;
-            case 4:
-                division(a, b);
-                break;
-            case 5:
-                Pow(a, b);
-                break;
-            case 6:
-                Sqrt(a);
-                break;
-            case 7:
                 Triangle();
                 break; 
-            case 8:
+            case 3:
                 ScientificCalculator();
                 break;
-            case 9:
+            case 4:
                 PercentageCalculations();
                 break;
-            case 10:
+            case 5:
                 Converters();
                 break;
-            case 11:
+            case 6:
                 BMICalculator();
                 break;
-            case 12: 
+            case 7: 
                 CalculateAreaAndPerimeter();
                 break;
-            case 13: {
+            case 8: {
             std::cout << ANSI_COLOR_CYAN << "Inserisci la data di nascita (AAAA MM GG): " << ANSI_COLOR_RESET;
             std::tm birthDate = {};
             std::cin >> std::get_time(&birthDate, "%Y %m %d");
@@ -79,13 +64,13 @@ void choice() {
             std::cout << ANSI_COLOR_GREEN << "La tua età e': " << age << " anni." << ANSI_COLOR_RESET << std::endl;
             break;
         }
-            case 14: 
+            case 9: 
                 CalculateTax();
                 break;    
-           case 15:
+           case 10:
            checkDecision();
             break;
-            case 16:
+            case 11:
             std::cout << ANSI_COLOR_BLUE << "Opzioni:\n 1. Calcolatore di Volume\n 2. Calcolatore di superficie\n" << ANSI_COLOR_RESET;
             std::cout << "******************************" << std::endl;
             std::cin >> choice;
@@ -102,7 +87,7 @@ void choice() {
                 break;
             }
             break;
-         case 17:
+         case 12:
             std::cout << "Inserisci un espressione: ";
             std::cin.ignore(); // Clear the input buffer
             std::getline(std::cin, expression);
@@ -117,7 +102,7 @@ void choice() {
     break;
 
 
-           case 18:
+           case 13:
             std::cout << ANSI_COLOR_BLUE << "Opzioni:\n 1. Equazioni lineari del tipo ax+b = 0\n 2. Sistemi lineari\n 3. Equazioni quadratiche del tipo ax^2+bx+c=0\n" << ANSI_COLOR_RESET;
             std::cout << "******************************" << std::endl;
             std::cin >> choice;
@@ -149,10 +134,10 @@ void choice() {
                 break;
             }
             break;
-            case 19: 
+            case 14: 
             statistics();
             break;
-            case 20:
+            case 15:
             graphics();
             break;
             default:

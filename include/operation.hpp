@@ -5,12 +5,25 @@
 
 #include "..\lib\libs.hpp"
 
-void addition(float a, float b);
-void subtraction(float a, float b);
-void multiplication(float a, float b);
-void division(float a, float b);
-void Pow(float a, float b);
-void Sqrt(float a);
+template<typename T>
+T addition(const std::vector<T>& nums);
+
+template<typename T>
+T subtraction(const std::vector<T>& nums);
+
+template<typename T>
+T multiplication(const std::vector<T>& nums);
+
+template<typename T>
+T division(const std::vector<T>& nums);
+
+template<typename T>
+T pow(T base, T exponent);
+
+template<typename T>
+T sqrt(T num);
+
+void operation();
 void Triangle();
 void PercentageCalculations();
 

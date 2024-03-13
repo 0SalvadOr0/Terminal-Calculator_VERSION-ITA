@@ -1,60 +1,124 @@
 #include "..\include\operation.hpp"
 
-void addition(float a, float b) {
-    std::cout << ANSI_COLOR_CYAN << "Inserisci primo valore: " << ANSI_COLOR_RESET;
-    std::cin >> a;
-    std::cout << ANSI_COLOR_CYAN << "Inserisci secondo valore: " << ANSI_COLOR_RESET;
-    std::cin >> b;
-    std::cout << "Risultato dell'addizione: " << ANSI_COLOR_GREEN << a + b << ANSI_COLOR_RESET << std::endl;
-}
-
-void subtraction(float a, float b) {
-    std::cout << ANSI_COLOR_CYAN << "Inserisci primo valore: " << ANSI_COLOR_RESET;
-    std::cin >> a;
-    std::cout << ANSI_COLOR_CYAN << "Inserisci secondo valore: " << ANSI_COLOR_RESET;
-    std::cin >> b;
-    std::cout << "Risultato della sottrazione: " << ANSI_COLOR_GREEN << a - b << ANSI_COLOR_RESET << std::endl;
-}
-
-void multiplication(float a, float b) {
-    std::cout << ANSI_COLOR_CYAN << "Inserisci primo valore: " << ANSI_COLOR_RESET;
-    std::cin >> a;
-    std::cout << ANSI_COLOR_CYAN << "Inserisci secondo valore: " << ANSI_COLOR_RESET;
-    std::cin >> b;
-    std::cout << "Risultato della moltiplicazione: " << ANSI_COLOR_GREEN << a * b << ANSI_COLOR_RESET << std::endl;
-}
-
-void division(float a, float b) {
-    std::cout << ANSI_COLOR_CYAN << "Inserisci primo valore: " << ANSI_COLOR_RESET;
-    std::cin >> a;
-    std::cout << ANSI_COLOR_CYAN << "Inserisci secondo valore: " << ANSI_COLOR_RESET;
-    std::cin >> b;
-
-    if (b == 0) {
-        std::cout << ANSI_COLOR_RED << "Divisione per zero non consentita." << ANSI_COLOR_RESET << std::endl;
-    } else {
-        std::cout << "Risultato della divisione: " << ANSI_COLOR_GREEN << a / b << ANSI_COLOR_RESET << std::endl;
+template<typename T>
+T addition(const std::vector<T>& nums) {
+    T sum = 0;
+    for (const auto &num : nums) {
+        sum += num;
     }
+    return sum;
 }
 
-void Pow(float a, float b) {
-    std::cout << ANSI_COLOR_CYAN << "Inserisci il primo valore: " << ANSI_COLOR_RESET;
-    std::cin >> a;
-    std::cout << ANSI_COLOR_CYAN << "Inserisci il valore della potenza: " << ANSI_COLOR_RESET;
-    std::cin >> b;
-    std::cout << "Risultato finale: " << ANSI_COLOR_GREEN << std::pow(a, b) << ANSI_COLOR_RESET << std::endl;
-}
-
-void Sqrt(float a) {
-    std::cout << ANSI_COLOR_CYAN << "Inserisci il valore: " << ANSI_COLOR_RESET;
-    std::cin >> a;
-
-    if (a < 0) {
-        std::cout << ANSI_COLOR_RED << "Valore negativo, impossibile calcolare la radice quadrata." << ANSI_COLOR_RESET << std::endl;
-    } else {
-        std::cout << "Risultato finale: " << ANSI_COLOR_GREEN << std::sqrt(a) << ANSI_COLOR_RESET << std::endl;
+template<typename T>
+T subtraction(const std::vector<T>& nums) {
+    T result = nums[0];
+    for (size_t i = 1; i < nums.size(); i++) {
+        result -= nums[i];
     }
+    return result;
 }
+
+template<typename T>
+T multiplication(const std::vector<T>& nums) {
+    T result = 1;
+    for (const auto &num : nums) {
+        result *= num;
+    }
+    return result;
+}
+
+template<typename T>
+T division(const std::vector<T>& nums) {
+    T result = nums[0];
+    for (size_t i = 1; i < nums.size(); i++) {
+        if (nums[i] == 0) {
+            std::cout << "Divisione per zero non consentita." << std::endl;
+            return 0;
+        }
+        result /= nums[i];
+    }
+    return result;
+}
+
+template<typename T>
+T pow(T base, T exponent) {
+    return std::pow(base, exponent);
+}
+
+template<typename T>
+T sqrt(T num) {
+    if (num < 0) {
+        std::cout << "Valore negativo, impossibile calcolare la radice quadrata." << std::endl;
+        return 0;
+    }
+    return std::sqrt(num);
+}
+
+void operation() {
+    std::vector<double> nums;
+    int arg;
+    double num;
+
+    int choice;
+    std::cout << "Scegli l'operazione da eseguire:\n";
+    std::cout << "1. Addizione\n";
+    std::cout << "2. Sottrazione\n";
+    std::cout << "3. Moltiplicazione\n";
+    std::cout << "4. Divisione\n";
+    std::cout << "5. Potenza\n";
+    std::cout << "6. Radice quadrata\n";
+    std::cin >> choice;
+
+    if (choice == 1 || choice == 2 || choice == 3 || choice == 4)
+    {
+        std::cout << "Inserisci quanti numeri vuoi immettere: ";
+        std::cin >> arg;
+
+        for(int i = 0; i < arg; i++) {
+            std::cout << "Inserisci il numero " << i+1 << ": ";
+            std::cin >> num;
+            nums.push_back(num);
+        }
+        switch(choice) {
+            case 1:
+                std::cout << "Risultato dell'addizione: " << addition(nums) << std::endl;
+            break;
+            case 2:
+                std::cout << "Risultato della sottrazione: " << subtraction(nums) << std::endl;
+            break;
+            case 3:
+                std::cout << "Risultato della moltiplicazione: " << multiplication(nums) << std::endl;
+            break;
+            case 4:
+                std::cout << "Risultato della divisione: " << division(nums) << std::endl;
+            break;
+            default:
+            break;
+    }}
+    else if (choice == 5 || choice == 6)
+    {
+        switch (choice)
+        {
+        case 5:
+            float base, exponent;
+            std::cout << "Inserisci la base per la potenza: ";
+            std::cin >> base;
+            std::cout << "Inserisci l'esponente per la potenza: ";
+            std::cin >> exponent;
+            std::cout << "Risultato della potenza: " << pow(base, exponent) << std::endl;
+            break;
+        case 6:
+            float radicand;
+            std::cout << "Inserisci il radicando per la radice quadrata: ";
+            std::cin >> radicand;
+            std::cout << "Risultato della radice quadrata: " << sqrt(radicand) << std::endl;
+            break;
+        default:
+            std::cout << "Scelta non valida." << std::endl;
+            break;
+        }
+    }   
+    }
 
 void Triangle() {
     int t_option;

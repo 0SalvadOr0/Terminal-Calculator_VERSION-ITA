@@ -9,22 +9,6 @@ void graphics2D(const std::string& y_expr, const std::string& title) {
 
         gp << "plot " << y_expr << '\n';
 
-        // ...
-
-    for (int x = 0; x <= 10; x++) {
-    // Evaluate the expression for y at the current x
-    double y = std::stod(y_expr); // Assuming y_expr is a valid mathematical expression
-
-    // Calculate the slope (m)
-    double slope = y / x;
-
-    // Calculate the angle using atan
-    double angle = std::atan(slope);
-
-    // Now you can use the angle as needed
-    std::cout << "Angle at x=" << x << ": " << angle << " radians\n";
-}
-
     } catch (const std::runtime_error& e) {
         std::cerr << "Errore durante la creazione del grafico: " << e.what() << std::endl;
     }

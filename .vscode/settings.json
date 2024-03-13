@@ -121,7 +121,8 @@
     "shared_mutex": "cpp",
     "stop_token": "cpp",
     "thread": "cpp",
-    "cfenv": "cpp"
+    "cfenv": "cpp",
+    "set": "cpp"
   },
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "python.testing.unittestArgs": [
