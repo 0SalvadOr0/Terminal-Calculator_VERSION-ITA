@@ -3,8 +3,9 @@
 -Wall
 -Werror
 -pedantic
--g
+-Wextra
 -L/path/to/libraries
--DDEBUG
 -fPIC
--march=native
+-mtune=native
+-Wshadow
+-Wnon-virtual-dtor

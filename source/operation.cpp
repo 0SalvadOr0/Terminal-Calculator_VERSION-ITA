@@ -1,7 +1,7 @@
 #include "..\include\operation.hpp"
 
 template<typename T>
-T addition(const std::vector<T>& nums) {
+inline T addition(const std::vector<T>& nums) {
     T sum = 0;
     for (const auto &num : nums) {
         sum += num;
@@ -10,7 +10,7 @@ T addition(const std::vector<T>& nums) {
 }
 
 template<typename T>
-T subtraction(const std::vector<T>& nums) {
+inline T subtraction(const std::vector<T>& nums) {
     T result = nums[0];
     for (size_t i = 1; i < nums.size(); i++) {
         result -= nums[i];
@@ -19,7 +19,7 @@ T subtraction(const std::vector<T>& nums) {
 }
 
 template<typename T>
-T multiplication(const std::vector<T>& nums) {
+inline T multiplication(const std::vector<T>& nums) {
     T result = 1;
     for (const auto &num : nums) {
         result *= num;
@@ -28,7 +28,7 @@ T multiplication(const std::vector<T>& nums) {
 }
 
 template<typename T>
-T division(const std::vector<T>& nums) {
+inline T division(const std::vector<T>& nums) {
     T result = nums[0];
     for (size_t i = 1; i < nums.size(); i++) {
         if (nums[i] == 0) {
@@ -41,12 +41,12 @@ T division(const std::vector<T>& nums) {
 }
 
 template<typename T>
-T pow(T base, T exponent) {
+inline T pow(T base, T exponent) {
     return std::pow(base, exponent);
 }
 
 template<typename T>
-T sqrt(T num) {
+inline T sqrt(T num) {
     if (num < 0) {
         std::cout << "Valore negativo, impossibile calcolare la radice quadrata." << std::endl;
         return 0;
@@ -60,39 +60,42 @@ void operation() {
     double num;
 
     int choice;
-    std::cout << "Scegli l'operazione da eseguire:\n";
+    std::cout << "******************************" << std::endl;
+    std::cout << ANSI_COLOR_CYAN;
     std::cout << "1. Addizione\n";
     std::cout << "2. Sottrazione\n";
     std::cout << "3. Moltiplicazione\n";
     std::cout << "4. Divisione\n";
     std::cout << "5. Potenza\n";
     std::cout << "6. Radice quadrata\n";
+    std::cout << "Scegli l'operazione da eseguire:\n" << ANSI_COLOR_RESET;
     std::cin >> choice;
 
     if (choice == 1 || choice == 2 || choice == 3 || choice == 4)
     {
-        std::cout << "Inserisci quanti numeri vuoi immettere: ";
+        std::cout << ANSI_COLOR_YELLOW << "Inserisci quanti numeri vuoi immettere: " << ANSI_COLOR_RESET;
         std::cin >> arg;
 
         for(int i = 0; i < arg; i++) {
-            std::cout << "Inserisci il numero " << i+1 << ": ";
+            std::cout << ANSI_COLOR_BLUE << "Inserisci il numero " << i+1 << ": " << ANSI_COLOR_RESET;
             std::cin >> num;
             nums.push_back(num);
         }
         switch(choice) {
             case 1:
-                std::cout << "Risultato dell'addizione: " << addition(nums) << std::endl;
+                std::cout << ANSI_COLOR_GREEN << "Risultato dell'addizione: " << addition(nums) << ANSI_COLOR_RESET << std::endl;
             break;
             case 2:
-                std::cout << "Risultato della sottrazione: " << subtraction(nums) << std::endl;
+                std::cout << ANSI_COLOR_GREEN << "Risultato della sottrazione: " << subtraction(nums) << ANSI_COLOR_RESET << std::endl;
             break;
             case 3:
-                std::cout << "Risultato della moltiplicazione: " << multiplication(nums) << std::endl;
+                std::cout << ANSI_COLOR_GREEN<< "Risultato della moltiplicazione: " << multiplication(nums) << ANSI_COLOR_RESET << std::endl;
             break;
             case 4:
-                std::cout << "Risultato della divisione: " << division(nums) << std::endl;
+                std::cout << ANSI_COLOR_GREEN << "Risultato della divisione: " << division(nums) << ANSI_COLOR_RESET << std::endl;
             break;
             default:
+                std::cout << ANSI_COLOR_RED << "Scelta non valida.\n" << ANSI_COLOR_RESET;
             break;
     }}
     else if (choice == 5 || choice == 6)
@@ -101,20 +104,20 @@ void operation() {
         {
         case 5:
             float base, exponent;
-            std::cout << "Inserisci la base per la potenza: ";
+            std::cout << ANSI_COLOR_MAGENTA << "Inserisci la base per la potenza: " << ANSI_COLOR_RESET;
             std::cin >> base;
-            std::cout << "Inserisci l'esponente per la potenza: ";
+            std::cout << ANSI_COLOR_MAGENTA << "Inserisci l'esponente per la potenza: " << ANSI_COLOR_RESET;
             std::cin >> exponent;
-            std::cout << "Risultato della potenza: " << pow(base, exponent) << std::endl;
+            std::cout << ANSI_COLOR_GREEN << "Risultato della potenza: " << pow(base, exponent) << ANSI_COLOR_RESET << std::endl;
             break;
         case 6:
             float radicand;
-            std::cout << "Inserisci il radicando per la radice quadrata: ";
+            std::cout << ANSI_COLOR_MAGENTA << "Inserisci il radicando per la radice quadrata: " << ANSI_COLOR_RESET;
             std::cin >> radicand;
-            std::cout << "Risultato della radice quadrata: " << sqrt(radicand) << std::endl;
+            std::cout << ANSI_COLOR_GREEN << "Risultato della radice quadrata: " << sqrt(radicand) << ANSI_COLOR_RESET << std::endl;
             break;
         default:
-            std::cout << "Scelta non valida." << std::endl;
+            std::cout << ANSI_COLOR_RED << "Scelta non valida." << ANSI_COLOR_RESET << std::endl;
             break;
         }
     }   

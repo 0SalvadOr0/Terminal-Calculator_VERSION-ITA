@@ -9,3 +9,7 @@ source/expression.cpp
 source/equations.cpp
 source/statistics.cpp
 source/graphics.cpp
+source/webApi.cpp
+source/fileFunc.cpp
+source/distance.cpp
+source/timeFuncs.cpp

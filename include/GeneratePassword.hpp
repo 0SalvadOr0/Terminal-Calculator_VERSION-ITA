@@ -4,6 +4,8 @@
 #define GENERATEPASSWORD_HPP
 
 #include "..\lib\libs.hpp"
+#include <regex>
+#include <random>
 
 std::string generateRandomPassword(int length);
 

@@ -122,7 +122,20 @@
     "stop_token": "cpp",
     "thread": "cpp",
     "cfenv": "cpp",
-    "set": "cpp"
+    "set": "cpp",
+    "any": "cpp",
+    "codecvt": "cpp",
+    "forward_list": "cpp",
+    "ranges": "cpp",
+    "span": "cpp",
+    "valarray": "cpp",
+    "variant": "cpp",
+    "*.rh": "cpp",
+    "version": "cpp",
+    "ciso646": "cpp",
+    "charconv": "cpp",
+    "chrono": "cpp",
+    "format": "cpp"
   },
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "python.testing.unittestArgs": [

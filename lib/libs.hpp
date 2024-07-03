@@ -6,16 +6,13 @@
 #include <iostream>
 #include <math.h>
 #include <string>
-#include <ctime>
 #include <iomanip>
 #include <cstdlib>
-#include <random>
-#include <iomanip>
-#include <stack>
-#include <regex>
 #include <algorithm>
 #include <numeric>
+#include <vector>
 #include "colors.hpp"
-#include "thirdParty/gnuplot-iostream.h"
+
+
 
 #endif

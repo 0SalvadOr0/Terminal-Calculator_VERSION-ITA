@@ -1,11 +1,71 @@
 #include "..\include\converter.hpp"
 
+using json = nlohmann::json;
+
+// Funzione per gestire la risposta HTTP
+size_t WriteCallbackConverter(void* contents, size_t size, size_t nmemb, std::string* output) {
+    size_t totalSize = size * nmemb;
+    output->append(static_cast<char*>(contents), totalSize);
+    return totalSize;
+}
+
+void exangeMoney() {
+    // Interagisci con l'utente
+    std::string fromCurrency, toCurrency, apiKey;
+    double amount;
+    std::cout << "Inserisci la tua apiKey del sito exchangerate-api: ";
+    std::cin >> apiKey;
+    std::cout << "Inserisci la valuta di partenza (es. USD): ";
+    std::cin >> fromCurrency;
+    std::cout << "Inserisci l'importo: ";
+    std::cin >> amount;
+    std::cout << "Inserisci la valuta di destinazione (es. EUR): ";
+    std::cin >> toCurrency;
+
+    // Inizializza libcurl
+    CURL* curl = curl_easy_init();
+    if (!curl) {
+        std::cerr << "Errore nell'inizializzazione di libcurl." << std::endl;
+    }
+
+
+    // URL dell'API di cambio valuta
+    std::string apiURL = "https://v6.exchangerate-api.com/v6/"+ apiKey+ "/latest/" + fromCurrency;
+
+    // Effettua la richiesta HTTP
+    std::string response;
+    curl_easy_setopt(curl, CURLOPT_URL, apiURL.c_str());
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallbackConverter);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
+    CURLcode res = curl_easy_perform(curl);
+
+    if (res != CURLE_OK) {
+        std::cerr << "Errore nella richiesta HTTP: " << curl_easy_strerror(res) << std::endl;
+    }
+
+    // Parsa la risposta JSON
+    json exchangeData = json::parse(response);
+    if (exchangeData["result"] != "success") {
+        std::cerr << "Errore nella risposta dell'API." << std::endl;
+    }
+
+    // Calcola la conversione
+    double exchangeRate = exchangeData["conversion_rates"][toCurrency];
+    double convertedAmount = amount * exchangeRate;
+
+    std::cout << amount << " " << fromCurrency << " corrispondono a " << convertedAmount << " " << toCurrency << std::endl;
+
+    // Pulisci e rilascia risorse
+    curl_easy_cleanup(curl);
+}
+
+
+
 void Converters() {
     int choice;
     float value;
     std::string fromUnit, toUnit;
-    double exchangeRateUSDToEUR = 0.85;
-    double exchangeRateGBPToEUR = 1.18;
 
 
 
@@ -218,40 +278,7 @@ void Converters() {
 
 
    case 6:
-    std::cout << ANSI_COLOR_CYAN << "Inserisci il valore da convertire: " << ANSI_COLOR_RESET;
-    std::cin >> value;
-    std::cout << ANSI_COLOR_BLUE << "Inserisci la valuta da cui convertire (EUR, USD, GBP): " << ANSI_COLOR_RESET;
-    std::cin >> fromUnit;
-    std::cout << ANSI_COLOR_BLUE << "Inserisci la valuta a cui convertire (EUR, USD, GBP): " << ANSI_COLOR_RESET;
-    std::cin >> toUnit;
-
-    if (fromUnit == "EUR") {
-        if (toUnit == "USD") {
-            std::cout << ANSI_COLOR_GREEN << "Valore finale: " << ANSI_COLOR_YELLOW << value / exchangeRateUSDToEUR << " USD" << ANSI_COLOR_RESET << std::endl;
-        } else if (toUnit == "GBP") {
-            std::cout << ANSI_COLOR_GREEN << "Valore finale: " << ANSI_COLOR_YELLOW << value / exchangeRateGBPToEUR << " GBP" << ANSI_COLOR_RESET << std::endl;
-        } else {
-            std::cout << ANSI_COLOR_RED << "Valuta di destinazione non valida." << ANSI_COLOR_RESET << std::endl;
-        }
-    } else if (fromUnit == "USD") {
-        if (toUnit == "EUR") {
-            std::cout << ANSI_COLOR_GREEN << "Valore finale: " << ANSI_COLOR_YELLOW << value * exchangeRateUSDToEUR << " EUR" << ANSI_COLOR_RESET << std::endl;
-        } else if (toUnit == "GBP") {
-            std::cout << ANSI_COLOR_GREEN << "Valore finale: " << ANSI_COLOR_YELLOW << (value * exchangeRateUSDToEUR) / exchangeRateGBPToEUR << " GBP" << ANSI_COLOR_RESET << std::endl;
-        } else {
-            std::cout << ANSI_COLOR_RED << "Valuta di destinazione non valida." << ANSI_COLOR_RESET << std::endl;
-        }
-    } else if (fromUnit == "GBP") {
-        if (toUnit == "EUR") {
-            std::cout << ANSI_COLOR_GREEN << "Valore finale: " << ANSI_COLOR_YELLOW << value * exchangeRateGBPToEUR << " EUR" << ANSI_COLOR_RESET << std::endl;
-        } else if (toUnit == "USD") {
-            std::cout << ANSI_COLOR_GREEN << "Valore finale: " << ANSI_COLOR_YELLOW << (value * exchangeRateGBPToEUR) * exchangeRateUSDToEUR << " USD" << ANSI_COLOR_RESET << std::endl;
-        } else {
-            std::cout << ANSI_COLOR_RED << "Valuta di destinazione non valida." << ANSI_COLOR_RESET << std::endl;
-        }
-    } else {
-        std::cout << ANSI_COLOR_RED << "Valuta di partenza non valida." << ANSI_COLOR_RESET << std::endl;
-    }
+    exangeMoney();
     break;
 
 

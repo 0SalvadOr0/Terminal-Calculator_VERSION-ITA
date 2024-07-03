@@ -50,20 +50,9 @@ void choice() {
             case 7: 
                 CalculateAreaAndPerimeter();
                 break;
-            case 8: {
-            std::cout << ANSI_COLOR_CYAN << "Inserisci la data di nascita (AAAA MM GG): " << ANSI_COLOR_RESET;
-            std::tm birthDate = {};
-            std::cin >> std::get_time(&birthDate, "%Y %m %d");
-
-            if (std::cin.fail()) {
-                std::cerr << ANSI_COLOR_RED << "Errore nell'input della data." << ANSI_COLOR_RESET << std::endl;
+            case 8: 
+                timeFuncs();
                 break;
-            }
-
-            int age = CalculateAge(birthDate);
-            std::cout << ANSI_COLOR_GREEN << "La tua età e': " << age << " anni." << ANSI_COLOR_RESET << std::endl;
-            break;
-        }
             case 9: 
                 CalculateTax();
                 break;    
@@ -139,6 +128,33 @@ void choice() {
             break;
             case 15:
             graphics();
+            break;
+            case 16:
+            weather();
+            break;
+            case 17:
+            SpacePerson();
+            break;
+            case 18:
+            GetF1Standings();
+            break;
+            case 19:
+            searchRapidAPI();
+            break;
+            case 20:
+            mapsSearch();
+            break;
+            case 21:
+            fileFunc();
+            break;
+            case 22:
+            googleTranslate();
+            break;
+            case 23:
+            distance();
+            break;
+            case 24:
+            ExerciseDb();
             break;
             default:
                 std::cout << ANSI_COLOR_RED << "Opzione non valida.\n" << ANSI_COLOR_RESET;
@@ -231,19 +247,6 @@ void CalculateAreaAndPerimeter() {
     }
 }
 
-// Funzione per calcolare l'età in base alla data di nascita
-int CalculateAge(const std::tm& birthDate) {
-    std::time_t currentTime = std::time(nullptr);
-    std::tm* currentDate = std::localtime(&currentTime);
-
-    int age = currentDate->tm_year - birthDate.tm_year;
-    if (currentDate->tm_mon < birthDate.tm_mon ||
-        (currentDate->tm_mon == birthDate.tm_mon && currentDate->tm_mday < birthDate.tm_mday)) {
-        age--;
-    }
-
-    return age;
-}
 
 // Funzione per calcolare l'importo delle tasse in base al reddito e alle aliquote fiscali
 double CalculateTax() {

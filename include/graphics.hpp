@@ -2,6 +2,7 @@
 #define GRAPHICS_HPP
 
 #include "..\lib\libs.hpp"
+#include "..\lib\thirdParty\gnuplot-iostream.h"
 
 
 void graphics2D(const std::string& y_expr, const std::string& title);

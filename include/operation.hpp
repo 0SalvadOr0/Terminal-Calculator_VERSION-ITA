@@ -6,22 +6,23 @@
 #include "..\lib\libs.hpp"
 
 template<typename T>
-T addition(const std::vector<T>& nums);
+inline T addition(const std::vector<T>& nums);
 
 template<typename T>
-T subtraction(const std::vector<T>& nums);
+inline T subtraction(const std::vector<T>& nums);
 
 template<typename T>
-T multiplication(const std::vector<T>& nums);
+inline T multiplication(const std::vector<T>& nums);
 
 template<typename T>
-T division(const std::vector<T>& nums);
+inline T division(const std::vector<T>& nums);
 
 template<typename T>
-T pow(T base, T exponent);
+inline T pow(T base, T exponent);
 
 template<typename T>
-T sqrt(T num);
+inline T sqrt(T num);
+
 
 void operation();
 void Triangle();
